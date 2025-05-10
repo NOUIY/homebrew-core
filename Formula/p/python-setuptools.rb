@@ -1,12 +1,12 @@
 class PythonSetuptools < Formula
   desc "Easily download, build, install, upgrade, and uninstall Python packages"
   homepage "https://setuptools.pypa.io/"
-  url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
-  sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
+  url "https://files.pythonhosted.org/packages/95/32/0cc40fe41fd2adb80a2f388987f4f8db3c866c69e33e0b4c8b093fdf700e/setuptools-80.4.0.tar.gz"
+  sha256 "5a78f61820bc088c8e4add52932ae6b8cf423da2aff268c23f813cfbb13b4006"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ed8a2b789244e431cb44ce05820ee2f0112465d46b3df722c802adb33de59a55"
+    sha256 cellar: :any_skip_relocation, all: "de6898d8f686d1a127cf9e9b6afc127a4ac90c3a5b0410ba896857c13de129cc"
   end
 
   depends_on "python@3.12" => [:build, :test]
@@ -22,7 +22,6 @@ class PythonSetuptools < Formula
     inreplace_paths = %w[
       _distutils/compilers/C/unix.py
       _vendor/platformdirs/unix.py
-      tests/test_easy_install.py
     ]
 
     pythons.each do |python|

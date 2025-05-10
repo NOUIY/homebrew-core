@@ -2,20 +2,25 @@ class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas.git",
-      tag:      "v2.1.0",
-      revision: "a4756e8c82a2bae5d5de1b137ec16fa7c1df8c94"
+      tag:      "v2.2.2",
+      revision: "7dacbbf3fb9a622247c1b0b9f18a4a9c7673ee53"
   license "MIT"
   head "https://github.com/mas-cli/mas.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f42e337bf806d9c55dc020fac7769f98ab033e1ca7bd22cf7fbdfb3010d1a8db"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab3563b0598e9ba16c6641792319ec0ee65c89d0d086d323a628ca07e26c9286"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "60da702231aa9894a9f95b580130f62285fd84658611d01c93a2beea7431774f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9443ab044f86178b718f669ccb5601116829686b1cb05448cb231b63f249e809"
-    sha256 cellar: :any_skip_relocation, ventura:       "f46a11b8667581487e13b786d349545cfa2cc15e1093abf4017dc6aff4cc654e"
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on xcode: ["14.2", :build]
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a4cba95e2f584f56e2e726c7808df195ceb0c1fe20aa3436f126ef0c527c59c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de10dbbddeff1469e06acd6ce7edefd35872fb013b75c55a6f60f8b4e6a15803"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c289261da5fa0e1b120bcb0dcb5ebf7abc67bb014f55f2a346f3ade71d2fd06b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff349aa8bb8af56798e3bcfe5344ecd801bc082c1aa6eb68e458a4c7de74b79a"
+    sha256 cellar: :any_skip_relocation, ventura:       "dabfebb8a16bf2da2058dcb0f6c6df51d7448728412001b135549802ba360303"
+  end
+
+  depends_on xcode: ["15.0", :build]
   depends_on :macos
 
   def install

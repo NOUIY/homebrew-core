@@ -1,8 +1,8 @@
 class Slepc < Formula
   desc "Scalable Library for Eigenvalue Problem Computations (real)"
   homepage "https://slepc.upv.es"
-  url "https://slepc.upv.es/download/distrib/slepc-3.23.0.tar.gz"
-  sha256 "78252f7b2f540c5fdadadee0fd21f3e6eff810f82cb45482f327b524c8db63d0"
+  url "https://slepc.upv.es/download/distrib/slepc-3.23.1.tar.gz"
+  sha256 "c2fde066521bbccfbc80aa15182bca69ffaf00a7de648459fd04b81589896238"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,23 +11,27 @@ class Slepc < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "e597393abb871509ecd75318c0e66074a90d5d627fbc3daa0ea322f0522f4014"
-    sha256 arm64_sonoma:  "06d5c5d94c2f1b9b591b35e9077895dbcfd38eb1dcdc71d0007e88f6e2e260b0"
-    sha256 arm64_ventura: "409a293b849118d3ffdd000e7e535b639d5986ebd1a1001cd83c75dc771941c7"
-    sha256 sonoma:        "d8d86c77bb0c98370297ece7cbfbb6d09f514e18da2a53bfbc471b584ddecddf"
-    sha256 ventura:       "8b8ecd08eda196f527d4effe1d2803d9920a4d3d2c6dd6be501699de44fbd518"
-    sha256 arm64_linux:   "0d1386474fb8f73713f49790662afbafe94d07b9c9309f96c1d0e78de13c7b78"
-    sha256 x86_64_linux:  "af5cdf664ca3813c4c311f0ba7a3ac396d2c5b823d396fa1f234ffedd57c230d"
+    sha256 arm64_sequoia: "f85955c046f0968313562108a8fd6aa37928c3e26559eca7f352d01b730d6ae8"
+    sha256 arm64_sonoma:  "f1c54fbc2661b9d01fb6325be8ee246b41e11671b06254d59c35181196092f87"
+    sha256 arm64_ventura: "085717ceafb7c6d9db2c70d126ee94a9be50ff389760d2a925421e093084e08e"
+    sha256 sonoma:        "9a8b14ecab42a75016f04933d51f17859f3cb3d1eb3165ed7e1568741a7883c1"
+    sha256 ventura:       "75a1e30f69b215aedc43ae79864fd38893ad7141e7a8a2b4130444e8ac606393"
+    sha256 arm64_linux:   "d1c3609f9fc9e5f64aa84c68bafccee996b26b2374f91005b97f8d352625fd88"
+    sha256 x86_64_linux:  "82e8f7056e01c96ff02f541d714960b08be64bd60a328ab24b1c978d3bb4a3d0"
   end
 
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "petsc"
+  depends_on "scalapack"
 
   uses_from_macos "python" => :build
 
   on_macos do
+    depends_on "fftw"
     depends_on "gcc"
+    depends_on "hdf5-mpi"
+    depends_on "metis"
   end
 
   conflicts_with "slepc-complex", because: "slepc must be installed with either real or complex support, not both"

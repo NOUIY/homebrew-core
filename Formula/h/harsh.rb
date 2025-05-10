@@ -1,18 +1,18 @@
 class Harsh < Formula
   desc "Habit tracking for geeks"
   homepage "https://github.com/wakatara/harsh"
-  url "https://github.com/wakatara/harsh/archive/refs/tags/v0.10.19.tar.gz"
-  sha256 "b0a99d43db6551a3b6712d6e905fb0f183d69b7180171d568fe9787c5be31935"
+  url "https://github.com/wakatara/harsh/archive/refs/tags/v0.10.21.tar.gz"
+  sha256 "3ddf2798ab1853932ecadfb1bcc1ea6cecfb96fbda35fbd52a797baf5844e6b1"
   license "MIT"
   head "https://github.com/wakatara/harsh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65b11a5b1bfc978a82259903ddb611357c7ee812dd8b97fea46f13b1cf763928"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65b11a5b1bfc978a82259903ddb611357c7ee812dd8b97fea46f13b1cf763928"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "65b11a5b1bfc978a82259903ddb611357c7ee812dd8b97fea46f13b1cf763928"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e210ac4e25caf14e4a0b32c6297164e078aab6fc64f63b011f461fc8b2d7847b"
-    sha256 cellar: :any_skip_relocation, ventura:       "e210ac4e25caf14e4a0b32c6297164e078aab6fc64f63b011f461fc8b2d7847b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fd5339e5e5c6f8a746707e1b9fd03e69697390a9b7fc888a3cce446480630a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "681743141ad4722b7161b6f11c6f513d4c5844ee51f25ba9f5535c85ca0eb64a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "681743141ad4722b7161b6f11c6f513d4c5844ee51f25ba9f5535c85ca0eb64a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "681743141ad4722b7161b6f11c6f513d4c5844ee51f25ba9f5535c85ca0eb64a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c53ec508dd9962b23efba69a2948eecd0400a8468f571b869a4184c51f0e93cf"
+    sha256 cellar: :any_skip_relocation, ventura:       "c53ec508dd9962b23efba69a2948eecd0400a8468f571b869a4184c51f0e93cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82d1afdfcec69c42387a91aeebc377b0c7709e4fbfdf5a990362e852a598e417"
   end
 
   depends_on "go" => :build

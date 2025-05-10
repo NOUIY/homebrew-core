@@ -1,8 +1,8 @@
 class BlockGooseCli < Formula
   desc "Open source, extensible AI agent that goes beyond code suggestions"
   homepage "https://block.github.io/goose/"
-  url "https://github.com/block/goose/archive/refs/tags/v1.0.18.tar.gz"
-  sha256 "7542d1f35f5bfd1cf47cec749d429e27b9d5c390112139c1b6c3e32ebf5df6ae"
+  url "https://github.com/block/goose/archive/refs/tags/v1.0.23.tar.gz"
+  sha256 "cc5d5d52a78ea794b5bb992786fb13fdd8dfe3e14e3747c952c095bcea1dec4e"
   license "Apache-2.0"
   head "https://github.com/block/goose.git", branch: "main"
 
@@ -12,13 +12,13 @@ class BlockGooseCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4dacf8aa769c41d727cb53053df4a625ae86b975521dde690703abf5d48a1640"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a9e7b311f4d66346a5bcb77afc11a3c444e9376d629a61924199d2836b96417"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0efadff8a032f8af551af019794175d770c9e33c30495a487d4be54e666333bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab5af4638162c5f88520fed0d05c619d2e14189ae3fac7f479362112029e1250"
-    sha256 cellar: :any_skip_relocation, ventura:       "0a5ca706f286598580d5429109679fc6481cd0bdf11d0668b12fc683a18706fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e4e1ccb0487bb2955bee0019b66cfb278836862dbaa3b467903790527068782e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e8b080060cc1ca62c9ad9382141b498c1850393970324f96d0e9be6117ba85f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93d1f69b039c28409c0e20a81ccf4a8d1a01383feff8dc5bfae45c4f323aa7f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b72a5b72b8f70a80894d7c5c36be297682daae44f973915bf21467d3ff69c07a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "161f5da57c3065262da9eb28ccfb13dd12dce1dbbcc7c25f5eb4cf97adf99d08"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e0cf2bdc311fc37aadc3df6053b35d344d15af10ce04b3e87cbb0b7217d4711"
+    sha256 cellar: :any_skip_relocation, ventura:       "77af89ed5aeb3c6ba964b63b3f9e26617ba599a1f6fc89fd546e1f1a24b00360"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a233a3729a77223651d57e740676df2dc5c9ae6eea227bc0ea76892564e91da1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c628c1a6b9682b35a226ebb0ec90daf825ae1ad208bbf1e2abebf12fbdf1e64"
   end
 
   depends_on "pkgconf" => :build

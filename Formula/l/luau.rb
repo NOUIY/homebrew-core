@@ -1,8 +1,8 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau.org"
-  url "https://github.com/luau-lang/luau/archive/refs/tags/0.669.tar.gz"
-  sha256 "f1d804f00d78e26b09fb998350c82d989ee1136e0eeccfbeba2de982a9e47311"
+  url "https://github.com/luau-lang/luau/archive/refs/tags/0.673.tar.gz"
+  sha256 "7587065619c1e63e781dcec895d9df9d8286730016d1ce2e51408f2b7e639314"
   license "MIT"
   version_scheme 1
   head "https://github.com/luau-lang/luau.git", branch: "master"
@@ -13,13 +13,13 @@ class Luau < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e623f651444469e178083e890e3b80b522f0b27313496630e9080c5edab3637"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c629b1b416b23494b5c8a52323f4cd3e27e339543395cd64d6c5957f69239ba0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "682804fa565b03b5992596f08a2239fd20ac730b37fb54cff0edb88b80eebc1e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "72fbf002b1c6102d78543b110ce35d62fb530af55d3ca4fa44f44b1c921f3992"
-    sha256 cellar: :any_skip_relocation, ventura:       "57ff462aa3732267bf2110e528d8749f1a5bbb482824251071f79791b707c784"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6bf0c6ca38831d11ee06470cfad999a2f8c2bddbf8b5431166fc4397e4f7cf52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b9eea9af9af46a9a789ea82a5f75deaa3e2083f12db1ccbaf0d3ee2908df3fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8389f4f6ca16c43f280b76c6300c8a3efcdc9d7b836022c26da67ddc85774d17"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf325cbc685f669853db8d14a710844c2738ed7f89f7c1e7d2d3b5687a913ad0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7d396499134fe9ef7773e4131d2e05408f4fed3dde55f1b9e29c3c7ec216859c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "96eb28dd46713ba04521675f7963c67b6d7990eb35104ac054ba95165b255992"
+    sha256 cellar: :any_skip_relocation, ventura:       "10354dd9e6fadef0747e17c0007f8a5f514de3aa3981a4b2a76cd36d5a259806"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81815c5c2d2b7d87dd42a5a00eb9e2d3ab67c348da55851ec8be35360661a702"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4750f18ba0da6dbd39a4c31ed8d89cd367e773695f28a1f56fcbde6bb640c3fe"
   end
 
   depends_on "cmake" => :build

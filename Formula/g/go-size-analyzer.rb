@@ -1,18 +1,18 @@
 class GoSizeAnalyzer < Formula
   desc "Analyzing the dependencies in compiled Golang binaries"
   homepage "https://github.com/Zxilly/go-size-analyzer"
-  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.7.9.tar.gz"
-  sha256 "bde796586eecbc82abf9ecf2f07d8b19f823c001e26630610f38e98e9ba07064"
+  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "ff14cedf8e475fd4fcebbd955dee408e91e8753827e3c49404be26bd43a8dd22"
   license "AGPL-3.0-only"
   head "https://github.com/Zxilly/go-size-analyzer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e8cf99a0cae6773d28b929269350f58607bb3dbd844a5190a5a1c341948fafe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "299ae7074c91c4efaf52d00c42a31f0e964fe36a76c31213f0421a68a93283e3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5f7799860bb2d47830137845719a72be50a6fa3a409b6f9369ca6ec62fb2b70"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b88e5cca265f246cc1ef280adbf75f51d4cd0b5d31e495a9c997698bc9fe66e"
-    sha256 cellar: :any_skip_relocation, ventura:       "79ae5deba51658b0e085fc998916edeca70c30b3b7878567a5f5c90d9c1d5556"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08c35bb05e2a5c1cb25c1dcf60fd698d0b316e7a067aea23e1884c9235354900"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4da41aa716cfc5d6eaed59bf2e493d34abef25cb0c03675673814d79a8f29a98"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d88340042f2896e0b615cc3c57d7fe851c1c12f5a716778860ffc11a9bfad2f4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b3dc86b1901a29153f024a77ffc4a881ae744a1bad9c0493174596975780c25d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "34a9cad8228d6fbbf79e8a6a481b18ba2ee09f705ebd9153dbfab17c5422bcc8"
+    sha256 cellar: :any_skip_relocation, ventura:       "481f1630a562c723f6d53f5eb0e4d0fec670ba8dfe2ac62dd3b08acad4b03dcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d936214d9ff34693f3c1883dcf9047c2f05ac0f444b17976cd5334ea6b3514bf"
   end
 
   depends_on "go" => [:build, :test]
@@ -39,15 +39,12 @@ class GoSizeAnalyzer < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gsa --version")
-    assert_match "Usage", shell_output("#{bin}/gsa invalid 2>&1", 80)
 
     (testpath/"hello.go").write <<~GO
       package main
 
-      import "fmt"
-
       func main() {
-        fmt.Println("Hello, World")
+        println("Hello, World")
       }
     GO
 

@@ -1,8 +1,9 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.com/"
-  url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.76.1-01.tar.gz"
-  sha256 "e2fe13994f4ffcc3e5389ea90e14a1dcc7af92ce37015a961f89bbf151d29c86"
+  url "https://github.com/sonatype/nexus-public.git",
+      tag:      "release-3.80.0-06",
+      revision: "74aa87dcd43439ef2b69d0a5e49d5522b7944261"
   license "EPL-1.0"
 
   # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
@@ -14,14 +15,13 @@ class Nexus < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "283afcee917edb48dc89401fbde2f2e2e7ef6f4f3a4b2f0c0aeb1a13977482c9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11fc02e55b326e2d714610e13cddc965cf404eb7e9a94d33789676bc03076670"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "824cffac4a9810625e41bc140f5656bfaa255851c0b6a475374daf1b5503b906"
-    sha256 cellar: :any_skip_relocation, sonoma:        "03908a16b05b89f03316b1d2113f7f9b0d23e35c8b362fca047af78b0577e806"
-    sha256 cellar: :any_skip_relocation, ventura:       "17e647b341d6e2d8e8d5b55695403320eb099f7d7708b56a349e8ab4d76f5a9e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff262a2eee5e87d1b4286ef97d01bc4a3de318004b4cf4130510717498bc44ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8d153097684ef3d932e1c2ed8c77113a12a1102c9c60f862acbb7ada2b8ef33"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8a3fd80c8008fd25205fb318ee06ae801a7d74d969b1d6f06bf5e7c2fb62b4c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41d2feb6e85f4df82192cf62afdb21e93bf5ea79b8fc163f9d297d4a440f8c39"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "939834966728216f77cd05f37e7be1d40e803615792cbc94510880e22be58514"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b368f0bd961164f00b33c38de70810cf24091f457dcfaf96bcbf41ac10102df9"
+    sha256 cellar: :any_skip_relocation, ventura:       "1317def65ab1ab74b617e15c16918e3d1eed2bd974007049d942d96ced029a7c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8bd720dbef91a776d339d8a3dfd14a4f960a01a40f9388a5503c1c285da8f8be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5dae4e536f76bf9badb1b6989d8d2a671009767a8324f16b81748471d6fdf2a"
   end
 
   depends_on "maven" => :build
@@ -55,11 +55,11 @@ class Nexus < Formula
     end
 
     system "mvn", "install", "-DskipTests", "-Dpublic"
-    system "unzip", "-o", "-d", "target", "assemblies/nexus-base-template/target/nexus-base-template-#{version}.zip"
 
-    rm(Dir["target/nexus-base-template-#{version}/bin/*.bat"])
-    rm_r("target/nexus-base-template-#{version}/bin/contrib")
-    libexec.install Dir["target/nexus-base-template-#{version}/*"]
+    assembly = "assemblies/nexus-repository-core/target/assembly"
+    rm(Dir["#{assembly}/bin/*.bat"])
+    libexec.install Dir["#{assembly}/*"]
+    chmod "+x", Dir["#{libexec}/bin/*"]
     (bin/"nexus").write_env_script libexec/"bin/nexus", java_env
   end
 
