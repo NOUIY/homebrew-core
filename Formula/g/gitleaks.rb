@@ -1,8 +1,8 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://gitleaks.io/"
-  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.24.3.tar.gz"
-  sha256 "1cf78443355066cb056d6fb5fc0ea695d2cd06dcd8e33a3c92999fb340c67cc7"
+  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.26.0.tar.gz"
+  sha256 "08fcf0ec5e7c3e5e8b6c5085df11478c06a4063cb58a64636e74e7f2a2ba903f"
   license "MIT"
   head "https://github.com/gitleaks/gitleaks.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Gitleaks < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe18ffa5e89d131a8efcbbc086d689ce41b000f63f769df3698f6955d5284d77"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe18ffa5e89d131a8efcbbc086d689ce41b000f63f769df3698f6955d5284d77"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fe18ffa5e89d131a8efcbbc086d689ce41b000f63f769df3698f6955d5284d77"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f5bea6d59c170d9f4a41b9f41de431fd97f816fcbc25d6443272f5aff9db4c6c"
-    sha256 cellar: :any_skip_relocation, ventura:       "f5bea6d59c170d9f4a41b9f41de431fd97f816fcbc25d6443272f5aff9db4c6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6dda47a73dc6b8117ee6d2cdcc6dfdda3d9b4909ed9cfbdd665cda43c86ffa2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5cfd2e08b25c761b208bf286dcaae5fd7a5042671d454b0ef91bf04ccca4224"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5cfd2e08b25c761b208bf286dcaae5fd7a5042671d454b0ef91bf04ccca4224"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5cfd2e08b25c761b208bf286dcaae5fd7a5042671d454b0ef91bf04ccca4224"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ec08839532355a07149688e7fbf9b9b6d068ef48c178f9abe20d66e884301a5"
+    sha256 cellar: :any_skip_relocation, ventura:       "0ec08839532355a07149688e7fbf9b9b6d068ef48c178f9abe20d66e884301a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb174012f0271f9c3011fcf5d198e3787db559c14b50a8a101287f68d7473f70"
   end
 
   depends_on "go" => :build

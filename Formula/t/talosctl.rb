@@ -1,19 +1,19 @@
 class Talosctl < Formula
   desc "CLI for out-of-band management of Kubernetes nodes created by Talos"
   homepage "https://www.talos.dev/"
-  url "https://github.com/siderolabs/talos/archive/refs/tags/v1.9.5.tar.gz"
-  sha256 "7e1b54db4f08b00ba07e273fac08ae708f53a230b4dd0868343f08c120f93b6f"
+  url "https://github.com/siderolabs/talos/archive/refs/tags/v1.10.2.tar.gz"
+  sha256 "57edde4242397dfdff51a698229f7f1d8b5fa73c153ec7211b2c3d484c468ed4"
   license "MPL-2.0"
   head "https://github.com/siderolabs/talos.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d209848443d9537433016eebbdf1ce22e22825e17fda98fcf669149ae57b2ea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1473dffb355f90a7dd1d6d97b8919ace17f4be0f6e6c6eb9a4bf9544cdfaacf8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f1d0f4f75beb980995206162d1e296c9d57c6ee5d3de78ade167fa2cf5432bc5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "480c6c3cda8a63bc95b08a3a3843064e2d373de714fda6c7dfdd372e1684541d"
-    sha256 cellar: :any_skip_relocation, ventura:       "c566e2c0270921e1b5a43736edefb9b34eb8ea3ae67530d1af5f8cb1c9fb4d1c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7480ca26d115cc259ecd85be308580ff215d95cb2ed779ab84b1044becb3baa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d12645871af8f3a1cb8e491d31a0fcbe84c1b0c732b943d593f9b3460c784be"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56324ebe2e144adb4cbda2e0c9fb0c93b9abee9a37237b69885e8ffc36a78178"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e603bcf8679a26fbef7a546c2a239af08a61ff518cbc6ac17e75d47dc0ee4e8d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1fd299692b36f24b5368b5eaafaf35b128e52b0a4bbc7028742582152550e956"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d0ff74597c387cd3409e57e290e9f6bddbe5f18a0d3d015a0ff3d4c94133bb15"
+    sha256 cellar: :any_skip_relocation, ventura:       "1ed1d58519252c412182ceed5c37af8a18014eecfb9285e399bd45bdf805a406"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18e1b913708c79f8ec0ec08b59b64d74035e39325194e2538786daf1c4020c02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcd307bda4833d35749b471e15bd09c4662a9b5307b23204b96c4530218612a9"
   end
 
   depends_on "go" => :build

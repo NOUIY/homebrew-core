@@ -1,9 +1,10 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "f7b55b0d91527c11adbfde4e95f78ab8238e8a35066cd8663882074ac18f2b6b"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.5.tar.gz"
+  sha256 "e025993d12c1f5e49e5b8dcb31c0e8b349efe56970d1a23d6c089ebd10928c6b"
   license "Apache-2.0"
+  head "https://github.com/goplus/llgo.git", branch: "main"
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class Llgo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "a96f779a5389a9fcdb130cd9101d35fb2b2d1d3776368969b0993a8a0c867912"
-    sha256 cellar: :any, arm64_sonoma:  "564c695388e1174c54b7ec84fc1baf746dc83c6b39e4b13d2dfbb1f08542dac7"
-    sha256 cellar: :any, arm64_ventura: "5a6d47e546bec68fe6408efa6aa94f43ad13fd782a381d771f3d6643d0f53c51"
-    sha256 cellar: :any, sonoma:        "77ff6916be6051de0c73b92f332cac15decb446345176c48053081e6795d1572"
-    sha256 cellar: :any, ventura:       "19124f9d591258fb823d379730dedbbdd3f2e806bb04cafef1c41150934b722d"
-    sha256               x86_64_linux:  "e39a853e8b70f3f11ca64d3b99a44c4d4c70d06d1d3b472e93f4a8c7186f8d04"
+    sha256 cellar: :any, arm64_sequoia: "b10ff1d39f288838a7b5a13a63a3e16804d8ea628cdfd6696f0af887433971fc"
+    sha256 cellar: :any, arm64_sonoma:  "d0754d188737c058658ed2a70dc35766fcda1749dfe5e95f546179d33c4fd8ea"
+    sha256 cellar: :any, arm64_ventura: "915d149d72ed455e7a710084ce4b2b7717354c11080a7d908b1ae55b010f14cf"
+    sha256 cellar: :any, sonoma:        "bf3b8f7feffaaaeb6db5553b06276f0d16e659395f5190ff2e41833c5f237c17"
+    sha256 cellar: :any, ventura:       "5a52937041fcdcdc649157cd0f8493737d6988d1213ad1d664a63fca8153c2ff"
+    sha256               x86_64_linux:  "90b74a9797489b39973dbc58bf1abfaf1a88018be88665517fdd309f91b38e14"
   end
 
   depends_on "bdw-gc"
@@ -82,6 +83,11 @@ class Llgo < Formula
     goos = shell_output("go env GOOS").chomp
     goarch = shell_output("go env GOARCH").chomp
     assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp
+
+    # Add bdw-gc library path to LD_LIBRARY_PATH, this is a workaround for the libgc.so not found issue
+    # Will be fixed in the next release
+    bdwgc = find_dep("bdw-gc")
+    ENV.prepend_path "LD_LIBRARY_PATH", bdwgc.opt_lib
 
     (testpath/"hello.go").write <<~GO
       package main

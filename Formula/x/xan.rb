@@ -1,19 +1,19 @@
 class Xan < Formula
   desc "CSV CLI magician written in Rust"
   homepage "https://github.com/medialab/xan"
-  url "https://github.com/medialab/xan/archive/refs/tags/0.49.1.tar.gz"
-  sha256 "a17cd8cc0463548541d2aadb0f2f559ec9d6cb3e58463ee32e4e50e09677a8a7"
+  url "https://github.com/medialab/xan/archive/refs/tags/0.50.0.tar.gz"
+  sha256 "9742e383649076b1348329e2430648267e22505b6ca35ce5006f614040f73d3c"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/medialab/xan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac3b4c193ec9cd526b82cbcf0432ef0636e18655298a51208be4ca351cea9741"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee388196d8ca8173f9d7c355463eb706708af3510701a7835b2299a52e308ddd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "632354dd57a81a7d2b0962b23f948519fc71e1b54f1257739bf4777303cc10a8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6fc9b0ec46fe76ea631faae3ef99e2000fb08b1fff7455553814b2a90a38e960"
-    sha256 cellar: :any_skip_relocation, ventura:       "4113930d3c299d59ed84cc5edade1d6f9b690ec1b006c60088f54b745bf83c6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "45c9c6bb6637671e2d6c977b43f54539e64983bcccacaf962a7dcf1059489b32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a417e602253de7505597906e77d28760c45e4877327f9399304f74f13297237"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dda1e14e5a4191bee289018c33305f52af3e9c679aed92837b342002d3545430"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efb0523f62429de464726a3fb3312a200c6c8265ec42675f01b70cd0a72c63d5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f6114c83139e3c4f93ce42e654dbf2f1ed556c676a5ec595035e1eb1e5a831e1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ee425dd63a9b7ab72e79ceb8cde3bda0fe4255ec855d57b570c5c15b5ccfe625"
+    sha256 cellar: :any_skip_relocation, ventura:       "8a6d8dd8a04c012d4cb9bbba91b5d4a3db7c38c04a750743426d44251c698c6a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab2f572d9c30f0dc4b110ca503b492672c941a65598f2fb065314782ebd219a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce6fe0210b7f6f1af0df33f06da2224d434544c44f59b778c284767f8b36d7c8"
   end
 
   depends_on "rust" => :build

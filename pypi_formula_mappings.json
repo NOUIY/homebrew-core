@@ -59,6 +59,10 @@
   "apprise": {
     "exclude_packages": ["certifi"]
   },
+  "arcade-learning-environment": {
+    "exclude_packages": ["numpy"],
+    "extra_packages": ["gymnasium"]
+  },
   "arjun": {
     "exclude_packages": ["certifi"]
   },
@@ -372,8 +376,8 @@
     "exclude_packages": ["certifi"]
   },
   "glances": {
-    "package_name": "glances[web]",
-    "exclude_packages": ["certifi"]
+    "package_name": "glances[all]",
+    "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser", "six"]
   },
   "gnuradio": {
     "package_name": "",
@@ -446,6 +450,7 @@
     "exclude_packages": ["certifi"]
   },
   "huggingface-cli": {
+    "package_name": "huggingface_hub[cli]",
     "exclude_packages": ["certifi"]
   },
   "icloudpd": {
@@ -764,6 +769,9 @@
   "rbtools": {
     "exclude_packages": ["certifi"]
   },
+  "rdiff-backup": {
+    "extra_packages": ["pyxattr"]
+  },
   "recon-ng": {
     "package_name": "",
     "exclude_packages": ["certifi"],
@@ -785,6 +793,9 @@
   },
   "ruff-lsp": {
     "exclude_packages": ["ruff"]
+  },
+  "sacad": {
+    "exclude_packages": ["pillow"]
   },
   "safety": {
     "exclude_packages": ["certifi", "cryptography"]
@@ -850,7 +861,8 @@
     "exclude_packages": ["certifi"]
   },
   "snowflake-cli": {
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography"],
+    "extra_packages": ["snowflake-core"]
   },
   "snapcraft": {
     "exclude_packages": ["certifi", "cryptography", "pygit2"],

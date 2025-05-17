@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://gdal.org/en/stable/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.10.3/gdal-3.10.3.tar.gz"
-  sha256 "e4bf7f104acbcb3e2d16c97fd1af2b92b28d0ba59d17d976e3ef08b794f4153b"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.11.0/gdal-3.11.0.tar.gz"
+  sha256 "723d7b04e0f094be2636128d15165b45059ac5e53f143cbbd93280af0b347abd"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "61e44e1dc8e4fb42d6566dbd4251e7a3e28d626eac6717e5454dd233c86b4c73"
-    sha256 arm64_sonoma:  "29686ee9fb3a1ccb084a0442bad88a1eb3ba14445cf3fc10bad1b2fe02d02a02"
-    sha256 arm64_ventura: "63f4c6d204508fc99e3b72d3ec8e2a809e8a64e3f0ce059061d09f41cd21a765"
-    sha256 sonoma:        "a10bf4b044aacb747ae72cba522ab233d9e04209f64ce84b1ba06ff5a87050f5"
-    sha256 ventura:       "b84a74e8baac0b1c33cb620eb738ef129d6ab3f6a1c7094beb9a3b82d68e5a6f"
-    sha256 arm64_linux:   "301963c3591c9de26d042a882da185d1061a414f518b3a41b710519ef29920c8"
-    sha256 x86_64_linux:  "2aef33b159f2ef43dde255e78bd56ffcecc16ce6ea721286a0e5f3f1b561718c"
+    sha256 arm64_sequoia: "fa4a398a609e0bd470349de92a552e7d9fbdb92256363acbfecc2f6400ef92ba"
+    sha256 arm64_sonoma:  "1c01ade27baeb77cc6d59b87bd5c4f80ecabee079ea09414092d535f14cb8221"
+    sha256 arm64_ventura: "268a968bf84c8f84cc73f8e9aa45f49c1769fb7538ccbcb0bb32df07ff47e5af"
+    sha256 sonoma:        "2026a913b1c6c4faa5018dc1d7d95e0fd2aa689be2f239b2e8c72b532783b839"
+    sha256 ventura:       "6bd0316d07f372fef74b73830c1318b4aa0cb169098627e36b9149ca69051d52"
+    sha256 arm64_linux:   "b095c30ccb24fd685c330deac480a9cd35c2f3f4982b7a5bf53f7f8d194d2bac"
+    sha256 x86_64_linux:  "2d9d40059800a442c93490369091d97362d61d3a56367f88de7d8131634b8e38"
   end
 
   head do
@@ -25,7 +25,7 @@ class Gdal < Formula
     depends_on "doxygen" => :build
   end
 
-  depends_on "boost" => :build # for `libkml`
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build

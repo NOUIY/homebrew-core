@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.21.0",
-      revision: "e0b66cad282043d4377cea5269083f17771b6dfc"
+      tag:      "v1.22.0",
+      revision: "f217402897f40ebba457e2421bc0a4702771968e"
   license "MIT"
 
   livecheck do
@@ -12,12 +12,13 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7274f49bd2b56ea21a92a81b83afbdd2576fa94ba5829cbd674f6bacefdf2484"
-    sha256 cellar: :any,                 arm64_sonoma:  "f0decf50d64c68d6cf3d91a540d14002cb7126cafe1e3e49dd3c0c04f3a7c5c4"
-    sha256 cellar: :any,                 arm64_ventura: "b38052bf7959968170b0397f226ca8a32912afc7ab8d919833c059620d4c4895"
-    sha256 cellar: :any,                 sonoma:        "e446360155e5c58a757cb142e76ab307272bcf037cfcc8630bfde8b7bf35d06d"
-    sha256 cellar: :any,                 ventura:       "87a8e6152b8f73557e2bda6ee7673c51565362b4a53e675502ac07528716ce55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "450d2d06a7b3cf547d26410cec335198aaeb28530159e1fb9df58b96173e1d8e"
+    sha256 cellar: :any,                 arm64_sequoia: "3f86b87a8fb5510d6f8c05918ba95c9d5c8ed00daa61cb01bb189d6523ae6f92"
+    sha256 cellar: :any,                 arm64_sonoma:  "a4351dd4c5f4fe151b0053d8d3826e9456271cfab20dfeed65e2f8fb4f981e17"
+    sha256 cellar: :any,                 arm64_ventura: "031529e7abd12c6d314a8bb9b02b9411134c593aeeb203afa798381954a430ae"
+    sha256 cellar: :any,                 sonoma:        "989b25e16644e5e6ca672ffd17dc03d4db442a22315d5b7ee6072f8c329e380a"
+    sha256 cellar: :any,                 ventura:       "1e370da96913bbf6a18d94ecf11e80eeef02eac9bf238d05cbee11f4b8e212fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d8de910a50997637a731b2cd3af8525524f8e398bda38b0fc285bdd82acae46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "421226c4a5e4c1f469d12197715dddf281b167fe6c4db790a2280eec9d0e7f0d"
   end
 
   depends_on "boost" => :build
@@ -38,7 +39,7 @@ class Onnxruntime < Formula
   # element_wise_ops.cc:708:32: error: no matching member function for call to 'min'
   #
   # https://github.com/microsoft/onnxruntime/blob/v#{version}/cmake/deps.txt#L25
-  resource "eigen" do
+  resource "eigen3" do
     url "https://gitlab.com/libeigen/eigen/-/archive/1d8b82b0740839c0de7f1242a3585e3390ff5f33/eigen-1d8b82b0740839c0de7f1242a3585e3390ff5f33.tar.bz2"
     sha256 "37c2385d5b18471d46ac8c971ce9cf6a5a25d30112f5e4a2761a18c968faa202"
   end
@@ -51,6 +52,7 @@ class Onnxruntime < Formula
 
   def install
     python3 = which("python3.13")
+    ENV.runtime_cpu_detection
 
     resources.each do |r|
       (buildpath/"build/_deps/#{r.name}-src").install r

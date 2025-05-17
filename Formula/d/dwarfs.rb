@@ -1,8 +1,8 @@
 class Dwarfs < Formula
   desc "Fast high compression read-only file system for Linux, Windows, and macOS"
   homepage "https://github.com/mhx/dwarfs"
-  url "https://github.com/mhx/dwarfs/releases/download/v0.12.2/dwarfs-0.12.2.tar.xz"
-  sha256 "9b256d1f2bc17917cd63a1bee3bd5f505076b4d880fcf9daa18a6ca5bca35aeb"
+  url "https://github.com/mhx/dwarfs/releases/download/v0.12.4/dwarfs-0.12.4.tar.xz"
+  sha256 "352d13a3c7d9416e0a7d0d959306a25908b58d1ff47fb97e30a7c8490fcff259"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,13 +12,13 @@ class Dwarfs < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "dafeb88fee34b87cfbf5983fd135c663486f824cd482fcec136ea225b512d2d2"
-    sha256                               arm64_sonoma:  "4919cd0620778dc4f6bd1231964623934736f542a8b8cc821f802ae3b017e06d"
-    sha256                               arm64_ventura: "bdae56e82bb1f78fc9ba419de3f6753e207061e4d1e13d860a932b275276f354"
-    sha256 cellar: :any,                 sonoma:        "e9e2b8a85484cc6e503b9b49d5e050fbab725d259ea586fe982c16cfac49503f"
-    sha256 cellar: :any,                 ventura:       "65de4763b4dcfaa51f9143ed60d3f176ca5e025bc1c4b3ecf2ccd9d5a16915e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dae58b9785b7dad6b91bf16c44bfca573bac302b5ca8788ca80ee0e4d540aae9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b928af57c4d4dc4b0e21e451bf5e81358261c770f2b413c28364fd033d5f90d5"
+    sha256                               arm64_sequoia: "3ff65a78a4f52826d19180d5d197218cb7e3fbe8d4b9ad6c16d85c8fb734e6a0"
+    sha256                               arm64_sonoma:  "0da0d156eaa75c1655cc3ea0a912028f92cf1b4b90a2c0b88b0966e4fa1319f7"
+    sha256                               arm64_ventura: "5099e0966d6a3b0a764bbb820d3e40172cfce51adb8b8e4c5314c8b5988da1e0"
+    sha256 cellar: :any,                 sonoma:        "a1e74d5a71e125918909c2f220b48df2e430de3ceb9fb5057e8f51c619b02677"
+    sha256 cellar: :any,                 ventura:       "a811e4738557e2962e0f8182a54228ab7a4b4209c5595cf4955dbc0486d5d9c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de340355a70a1bd71d61ece366abad774b8bc4fbf9a0d1654115b1ff7852f22a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97a7815ccb7ee637d0a712b3cee46753b82e8c4f66864a860b8900052c535d72"
   end
 
   depends_on "cmake" => :build
@@ -56,13 +56,6 @@ class Dwarfs < Formula
   fails_with :clang do
     build 1500
     cause "Not all required C++20 features are supported"
-  end
-
-  # Backport folly fix for LLVM 20
-  patch do
-    url "https://github.com/facebook/folly/commit/ef5160f6b02fb8eb971adf7edd3aea96ef73bc66.patch?full_index=1"
-    sha256 "66db8650dc30d285064fcccb93c5d4e7384cefae091b1fc76eddede279271332"
-    directory "folly"
   end
 
   # Apply folly fix for LLVM 20 from https://github.com/facebook/folly/pull/2404

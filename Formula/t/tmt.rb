@@ -3,18 +3,18 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/32/08/e9d660c85d198bf0fa504a0bb6f4434617ee4ac8a87889ff96eeb519abfa/tmt-1.46.0.tar.gz"
-  sha256 "c8bfc906de33c7f37a9e3c3ed72ef98f33ba2be3f35a13c42a1a9f48e210c437"
+  url "https://files.pythonhosted.org/packages/e3/80/81ff2de5c0e59ecedb5341345f9e2d92f52c8b4c67ec27264bf7462edc9e/tmt-1.48.0.tar.gz"
+  sha256 "5854a5260db1417844789b8cbf2a18e428661977f18e191cdfd246d75f6b0577"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c86850c27de6d2cf8acf15432e0f1dbccb0c45748fe4606948c4b764dd49212c"
-    sha256 cellar: :any,                 arm64_sonoma:  "0ca067baecab890666697e9cd4850a7982ea7406bbafc7462334ad4f5f9dd383"
-    sha256 cellar: :any,                 arm64_ventura: "1d5a5bf7b355c5fcfce5715b9548585a4f5fe9bfd049a8d7df9db595f8fa2901"
-    sha256 cellar: :any,                 sonoma:        "94665b7fd8d486eeaca60bb50a305ebd601129a06c0b9cd3e3306e8edec7c9ce"
-    sha256 cellar: :any,                 ventura:       "e7a3f7c095f6e3757a30884626395bc11908a4da9268e5471a2116c0c1da2c27"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd3bc37fe175a942131d3919b1054fe18f15e9cf4bbf4530da68c61d9f2ecb9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad341b3f2089ec49628e095b035424c05f74d840bded3e337706681927f5a6dc"
+    sha256 cellar: :any,                 arm64_sequoia: "c1048a33ce45bd72050e1fabb0569758d6c93541b295d8cd6a0900309f303396"
+    sha256 cellar: :any,                 arm64_sonoma:  "503071ff86cdef1c3845631ce3f799b2d6cbfc9c502ad950c33154e2321e2332"
+    sha256 cellar: :any,                 arm64_ventura: "4287a14195fccf5c45c449db15f79c62da28368656951471117efdda176fe4c9"
+    sha256 cellar: :any,                 sonoma:        "640aa2726533a4e637473e48c8a5fda05fd8f9b43ecc015c351e153b740fedb7"
+    sha256 cellar: :any,                 ventura:       "53b0f06f114c346f9c2b9e279d536d849a7dee98397e4f98e24abcb896edf642"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a851352f3cfb1fa02a307812ca83ab3d0dfdab511d02e8afcc4c6cd2fef5caba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d507980cb846c7a3f0c531eb396c820b56348489fed26ab7a8602d2d3396859"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -33,8 +33,8 @@ class Tmt < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "click" do
@@ -83,8 +83,8 @@ class Tmt < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
-    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
+    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
+    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
   end
 
   resource "markupsafe" do
@@ -93,8 +93,8 @@ class Tmt < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pint" do
@@ -103,18 +103,18 @@ class Tmt < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
-    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
+    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
+    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/10/2e/ca897f093ee6c5f3b0bee123ee4465c50e75431c3d5b6a3b44a47134e891/pydantic-2.11.3.tar.gz"
-    sha256 "7471657138c16adad9322fe3070c0116dd6c3ad8d649300e3cbdfe91f4db4ec3"
+    url "https://files.pythonhosted.org/packages/77/ab/5250d56ad03884ab5efd07f734203943c8a8ab40d551e208af81d0257bf2/pydantic-2.11.4.tar.gz"
+    sha256 "32738d19d63a226a52eed76645a98ee07c1f410ee41d93b4afbfa85ed8111c2d"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/17/19/ed6a078a5287aea7922de6841ef4c06157931622c89c2a47940837b5eecd/pydantic_core-2.33.1.tar.gz"
-    sha256 "bcc9c6fdb0ced789245b02b7d6603e17d1563064ddcfc36f046b61c0c05dd9df"
+    url "https://files.pythonhosted.org/packages/ad/88/5f2260bdfae97aabf98f1778d43f69574390ad787afb646292a638c923d4/pydantic_core-2.33.2.tar.gz"
+    sha256 "7cb8bc3605c29176e1b105350d2e6474142d7c1bd1d9327c4a9bdb46bf827acc"
   end
 
   resource "pygments" do
@@ -143,8 +143,8 @@ class Tmt < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/76/ad/cd3e3465232ec2416ae9b983f27b9e94dc8171d56ac99b345319a9475967/typing_extensions-4.13.1.tar.gz"
-    sha256 "98795af00fb9640edec5b8e31fc647597b4691f099ad75f469a2616be1a76dff"
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   resource "typing-inspection" do
@@ -153,8 +153,8 @@ class Tmt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   def install

@@ -1,9 +1,9 @@
 class Mac < Formula
   desc "Monkey's Audio lossless codec"
   homepage "https://www.monkeysaudio.com"
-  url "https://monkeysaudio.com/files/MAC_1108_SDK.zip"
-  version "11.08"
-  sha256 "9b5350a3caeba8f49aa46b95109750913b782fa73e2398f67d724e953812dcf7"
+  url "https://monkeysaudio.com/files/MAC_1111_SDK.zip"
+  version "11.11"
+  sha256 "d477452c31dfd1be567c910a1f06e210bf5f6197ba8f20f879cdd0c8c3d35cf3"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,16 @@ class Mac < Formula
     regex(%r{<div\s+class="release">Version\s+(.*)\s+\(.*\)</div>}i)
   end
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "08df0b75d9848eca59ecb1b5577f49a377c1369652b6c7d2ec258bb9e692771e"
-    sha256 cellar: :any,                 arm64_sonoma:  "233c231067d746fa9f58c93f40fa1ad0fd6d6ed3f4a69b7686ebac97fe317528"
-    sha256 cellar: :any,                 arm64_ventura: "be5d30bf9dcf5d945b231e78525832e2c5fcfa659fdd36f0783930a043f23c1e"
-    sha256 cellar: :any,                 sonoma:        "0c9f1891ee3b3a3d0806f6183981944b5a68b03f4e562b87fae67e1c6f1d2254"
-    sha256 cellar: :any,                 ventura:       "ee090e62047ae8e4f30eebfca4b494664cc697fd353fba527421f0095e1244c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b24af25da7cd973d0e83ee92baaec4e5a409f7ed0eed3a4396898c9aed2a0af9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab770f7a5d948df8da7006a9141ffecb25144bf789cc2da56b2e115635cc0f1f"
+    sha256 cellar: :any,                 arm64_sequoia: "41e91f7dcc53ea35a5c5ae78dd08431efb9c2d7de35f62376842aff5bd51c9d9"
+    sha256 cellar: :any,                 arm64_sonoma:  "103c49813e23de001f3807dcfb04729b01060360751290ae909b4b5a3df64b48"
+    sha256 cellar: :any,                 arm64_ventura: "c6eb5081d170aac3294b23de63a4e6885bc757641a89a135548ad6ade489a4fc"
+    sha256 cellar: :any,                 sonoma:        "b50f6017a179baec04b42fd90b413097eda52dd4b6d7d6b3181ac92f776e5c92"
+    sha256 cellar: :any,                 ventura:       "41bbd7396c83d11c5e425c880b2f9c910c5d9f9d73f0c94c816410cb9a9017ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b58597d7910a504fb6d4c3040b3635275660f196a8f97b16b75be9e24ae3e3a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b85302c79cc549434857134f091874a5f73d912d6140f45de79bc0b614ef83ff"
   end
 
   depends_on "cmake" => :build

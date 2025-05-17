@@ -1,17 +1,17 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.2.4.tgz"
-  sha256 "5a7e1535d8c6378d613e9ea1d70e59eceddbb2cde505b68eb9ed63389cf349e4"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.3.1.tgz"
+  sha256 "f01a48c41843b7e6358aaeae3294312ef2f8b59d9635d4aef4671b49ce2c9403"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a5ba6751d8dba026234d353ac5379b3d256c8da145e00e4409a1eee6bf1fc6b1"
-    sha256 cellar: :any,                 arm64_sonoma:  "eedc2978e93fe15bb1fdd022d70fd3c3177ea8c07e79ec13194f0c94c5f79e88"
-    sha256 cellar: :any,                 arm64_ventura: "4580cabec4782774c0b74acc95524d9a539ef59427bbca97ba0364bb6018eaa3"
-    sha256 cellar: :any,                 ventura:       "388bb2c61f85686b71732423b5ea9cd0d6e01ae442a9b2030a13990ca7c383ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ed753713e4d6c6ddb3e7f997c9918f7666700e95d54c991580da72286aa8f0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b08904e8b209711703c4862d3b7600f4c30c75a2a3e1f660f3c4f0848945766"
+    sha256 cellar: :any,                 arm64_sequoia: "57fa4d270319eab154f99190ed853e96ae85afb26aaeb5b9e654c3a1c92484dc"
+    sha256 cellar: :any,                 arm64_sonoma:  "4a440203be92739a1a520146bb83fbe01f229bb9378e2d8f418d540b32848b3c"
+    sha256 cellar: :any,                 arm64_ventura: "845d121768955fa5ced59234040643dd5f69d655ff5f9977da72d4acc1f9e9e5"
+    sha256 cellar: :any,                 ventura:       "eb650fcbba08c1056641c1c947c803c5c5b9cd73ec8c09f18848b49bf90d98fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67d409a7cb5a9f81c98b43433949e797cc2965a7b009950796d417e254ed9a2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c25674cd8d5c7c4c6a5148bcc097e94c4931db2a7a06d72d28e0758e2ee86849"
   end
 
   depends_on "dotnet" # for dosai
@@ -22,8 +22,8 @@ class Cdxgen < Formula
   depends_on "trivy"
 
   resource "dosai" do
-    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v1.0.2.tar.gz"
-    sha256 "8dee3b328f58c75b62be9acbc26e00d6932599985c47588feb323c900fba6688"
+    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v1.0.4.tar.gz"
+    sha256 "5a944103d0f02fcb2830a16da85d4cef2782ffa94486d913f40722aaf1bb4209"
   end
 
   def install
@@ -68,9 +68,8 @@ class Cdxgen < Formula
       system "dotnet", "publish", "Dosai", *args
     end
 
-    # Ignore specific Ruby patch version and reinstall for native dependencies
-    inreplace node_modules/"@appthreat/atom/rbastgen.js", /(RUBY_VERSION_NEEDED = ")[\d.]+"/, "\\1\""
-    cd node_modules/"@appthreat/atom/plugins/rubyastgen" do
+    # Reinstall for native dependencies
+    cd node_modules/"@appthreat/atom-parsetools/plugins/rubyastgen" do
       rm_r("bundle")
       system "./setup.sh"
     end

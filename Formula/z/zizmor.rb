@@ -1,18 +1,20 @@
 class Zizmor < Formula
   desc "Find security issues in GitHub Actions setups"
-  homepage "https://woodruffw.github.io/zizmor/"
-  url "https://github.com/woodruffw/zizmor/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "9789dca47e36ac8c124be5856c38acfac6169839c7fb3a0ce492776e47f1d880"
+  homepage "https://docs.zizmor.sh/"
+  url "https://github.com/zizmorcore/zizmor/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "9564db26f6e134a8f23f6d92c48a25c7cf457fed5de5ac76643cd45abf098129"
   license "MIT"
+  head "https://github.com/zizmorcore/zizmor.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44ea65cdc71afa8e5717919be822456172a31a39b8061fb56041ec82d1b1b40e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45afe3145e67cd329faa3b1be1a7eea8840955881e2afdaa655cbb7d1e91cffd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f94f2cc9e5c878c80dd9cacbdf8f249bc574cded3301524ea642557ff2cb8213"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6730852ca2acea48f89324559683c526709f92c9be0e20bba156965f492754bf"
-    sha256 cellar: :any_skip_relocation, ventura:       "83b9c25537c2e30c681eef1796bd55dafc3c86a87d486807f194f78197ecdcd3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a602a257efd83ca95718bd7750701fb6cf0370e4a2555b7e6a7987261ecb87cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59c31eed2ba3d1f73b5f106678c548f04daad76b4f54591335d3337fdcdb17b0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe997f8811e7eed3e1435a75557269e5ae510b047dfc169a641555a699ad2dc6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89921f02ba68bac05eaff29c8c1f7cb3a707f9b89710b25b51dfaa1b4755f86b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c43af3dd890eb1782e27aeeb772cf589f724529b4199c879d598360a7bbb5c44"
+    sha256 cellar: :any_skip_relocation, sonoma:        "29dfae0331e97244575914cabd1858f30d7f5b17d18fa36524fbff4e0287a5a4"
+    sha256 cellar: :any_skip_relocation, ventura:       "b8c53542d2d4c4c99c370c4e313013afec187bc3394cdf9e443858c52575325f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcce1f98efb0beaafd24de5f3aa74a6d2d5dd8d2d563d4589d5df0959194aebd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f32ca3503f3465cad4d5fe6fab6905e10753b9c41b16887350b3d3cc69020821"
   end
 
   depends_on "pkgconf" => :build
@@ -20,10 +22,12 @@ class Zizmor < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"zizmor", shell_parameter_format: "--completions=")
   end
 
   test do
-    (testpath/"action.yaml").write <<~YAML
+    (testpath/"workflow.yaml").write <<~YAML
       on: push
       jobs:
         vulnerable:
@@ -33,7 +37,7 @@ class Zizmor < Formula
               uses: actions/checkout@v4
     YAML
 
-    output = shell_output("#{bin}/zizmor --format plain #{testpath}/action.yaml", 13)
+    output = shell_output("#{bin}/zizmor --format plain #{testpath}/workflow.yaml", 13)
     assert_match "does not set persist-credentials: false", output
   end
 end

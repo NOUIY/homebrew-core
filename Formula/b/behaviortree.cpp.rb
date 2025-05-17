@@ -1,18 +1,18 @@
 class BehaviortreeCpp < Formula
   desc "Behavior Trees Library in C++"
   homepage "https://www.behaviortree.dev/"
-  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.6.2.tar.gz"
-  sha256 "b0e7e53b27feae894e2df3f3faadfdd49f2108ebccfb1bd7cc0d405ffc56cecd"
+  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.7.1.tar.gz"
+  sha256 "7fccfad1bbe6fd0b3dffff0e439fcd508ca2983deec1b7447a5c8d66540dd91c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "76735a4aaa8407db888e5dcda8cdd615c867d60d22e7571a09815189c6638529"
-    sha256 cellar: :any,                 arm64_sonoma:  "1d302e8019808583145e3cd797615fa030821e6019530c4438cf88f6d622172a"
-    sha256 cellar: :any,                 arm64_ventura: "d66a7461ae47f2c5bf0e8fec136178870098cb66ea06a4f2ce271da3317fbb6b"
-    sha256 cellar: :any,                 sonoma:        "2305e0df7acf9f12494b0f8df56f993cb571256c039217dff05fca9d1f672225"
-    sha256 cellar: :any,                 ventura:       "a43a30fc1138ca2e6553c1d29ebf7936bd1f61569595b4dd1a58f1e21499c0fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3ad98b48b860f14138e39d456c273723eb8b8c070c0c67942f87f4ea9d91e6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ca79c98d692d391afd368f2da3fb03e561686afe91312f664aa94ebdabb2e1a"
+    sha256 cellar: :any,                 arm64_sequoia: "d4c88258807c03dfa42972d969926a0ca73e47cfb4255f2671899530d5f5b697"
+    sha256 cellar: :any,                 arm64_sonoma:  "d966f3f5496bbf6dd1e5814f0efb80692046c9e88ec5be3cae349b8a2f51bcc4"
+    sha256 cellar: :any,                 arm64_ventura: "762a8cf30054ceac0d39c0fc660619a1293a6c1d93d2bd79a5dab2f65a09e701"
+    sha256 cellar: :any,                 sonoma:        "d29e1b0f4dc31024d23c858c0dc398b92b7e81699685bcbb2925dfcd53d9c14c"
+    sha256 cellar: :any,                 ventura:       "33194549fe30d82462d9544ee3d337c3561c9ebb0297c0f0904ce5f72c78bae8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "daada1bfe756c6bb71bcdf3f0f7090ae2436172c1f7bdb6d6890937771722410"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9709dc54ea399939a8ebf959cb9d10b8766f6a05f0284fb3de1e3e037818b7b0"
   end
 
   depends_on "cmake" => :build
@@ -22,11 +22,12 @@ class BehaviortreeCpp < Formula
   uses_from_macos "sqlite"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DBTCPP_UNIT_TESTS=OFF",
-                    "-DBTCPP_EXAMPLES=OFF",
-                    *std_cmake_args
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DBTCPP_UNIT_TESTS=OFF
+      -DBTCPP_EXAMPLES=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples"

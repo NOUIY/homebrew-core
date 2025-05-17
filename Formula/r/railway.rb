@@ -1,19 +1,19 @@
 class Railway < Formula
   desc "Develop and deploy code with zero configuration"
   homepage "https://railway.com/"
-  url "https://github.com/railwayapp/cli/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "7885b74ea8e62d3156489888a01e30b76f1e5e65aee63b11232b968fce37d3e8"
+  url "https://github.com/railwayapp/cli/archive/refs/tags/v4.5.1.tar.gz"
+  sha256 "65e77d90cb3d642e04a92403bcdfeb0e7417661f01d37c67ff11805f8e798dca"
   license "MIT"
   head "https://github.com/railwayapp/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22ba11d21bc3c30dccf18583c181cfc3c2163d7a598177541856d682fad8cbca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90e489521c3f1fd54fbede6e1fe5367d0a4420dcd11c8b3aecf9ecd9fe9471fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "526951d476993b4bec51aa0c6fe46fbb22343498ab3cc512051f671c938aa0c3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c6e7bd2305425268fbfe005f8a581fc813d51d1df045a928d6438a28094557e9"
-    sha256 cellar: :any_skip_relocation, ventura:       "f274d6cf063b5c38858c46b72947e7d01b2ccda7060b9716884a0ee47c5c2383"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d6cdcc22124033c1903f4080a8c355036013c31c004c587e8a3a99d59a968e6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "247257484f77f0453513c216656f23eb225fcca7be90f3f946bf6320c456c2aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa3ccabfd1518686094d557340c458a574e5aabe7b86503d83a897c99984a13b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17755ec6b55e14f157678065460e1776afbe27222ef22bfce14091afd52dd6b8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3d617a420c066c05d1025e4f57a064b6701a56b994231c3d0db26a03e65af28d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a99d7b4bc8e0a99a5a6ea1ba4967c00c8955755a6cb231c4be43bdc6b69c6a5"
+    sha256 cellar: :any_skip_relocation, ventura:       "0361a2171f7c2150b003e8c422ab140542f0acfea26545df7bcafe5394fefa42"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "911d8aaa4558fdf68c4363992b2ffcaf2d087f04791dc15f4227adc318517222"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "937d91dc990eb698d057a62ab8e35c349c4c3340d2b650b8344965a88efc1c15"
   end
 
   depends_on "rust" => :build
@@ -28,6 +28,6 @@ class Railway < Formula
     output = shell_output("#{bin}/railway init 2>&1", 1).chomp
     assert_match "Unauthorized. Please login with `railway login`", output
 
-    assert_equal "railwayapp #{version}", shell_output("#{bin}/railway --version").strip
+    assert_equal "railway #{version}", shell_output("#{bin}/railway --version").strip
   end
 end

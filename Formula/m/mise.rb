@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2025.4.4.tar.gz"
-  sha256 "3dcd68d05830fec5da392a99badff9133db3eb30e4b8470623df15f9b307a7f1"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2025.5.5.tar.gz"
+  sha256 "6ac35ea90bed5ee28db23a85877839a7043b414ba70a3127df712b1e6e82a5a2"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -11,14 +11,16 @@ class Mise < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8466e64bc59550bc94b259d47a2a079f7757137e393e1b91e3d1f973f335a73"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eca753f3707460f776af73364026cdcecc3ba1e565217f3d0162cb689ce75aee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "93d7ae7e15db5b8133422d873df4e71621d8fc48c42c2fc27e4936c9f8e46ff1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "64f903bce27adebebe6e246ccce06c1462c3dafbe4490beec787ff631c804bb8"
-    sha256 cellar: :any_skip_relocation, ventura:       "e388aa389fd555f06525ba680832f1382497d5e54470443dc85f59bd53995020"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "321ffb71a34b138079176583b5bd3deca3d9b39040d285d002c10b46d5830d68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7860fa8442c49dab5c49a0d9a687a1fa18255e3ea620ae48c6e659f7852d873"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cde523a1d6934b1a43691b78c45f2f17d00e943c27f74010f6768ddc600ce50e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a769accfb2095e959dbc362ceb127bcdc70757195e5c2f159177db53335229d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6c16671d7c9aeb6718399e0c3581f1c367965097e8a82aa4dc82db357cf6e8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de644e4d0960d84a1d9fd930618bcf19cd045a13027cb38464dc81ed63fa2cbe"
+    sha256 cellar: :any_skip_relocation, ventura:       "651c6c68d1f7448844bbd26b597843197e9dfa57b892c41e82544cf0e3e8bbd9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b5f4dd62ec34e2a59f235dc5dfb950953befa4d00dc25c3520f3cdbfc9f924c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "792372aa18cb323dbaec28a61f64a015d83c2611a30cafa1d49b803acb9d690c"
   end
 
   depends_on "pkgconf" => :build

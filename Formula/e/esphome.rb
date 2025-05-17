@@ -3,18 +3,18 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/32/12/4bc0549c90097b9b875a72dc31d5c87d194a9de2ab74d1009c7e3621c2da/esphome-2025.4.0.tar.gz"
-  sha256 "cd2331512dc54229b4371a9f5a8848b696355c18dc24e860d36595dc4af6d802"
+  url "https://files.pythonhosted.org/packages/ed/47/829f28225fa610035e04a6af99c9f89c9d0121a646d46ad4177e034f24d8/esphome-2025.4.2.tar.gz"
+  sha256 "e92e138a44467810ab047e514db3770d2d3f58d3f11f68baefad3269756c6736"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1dc27b032cf3fa443adbf5f9bcace165473db2dbcce727419154416bc1877fac"
-    sha256 cellar: :any,                 arm64_sonoma:  "995aa11650970040bbefc168e85aa3d358bbbd2f05364584ec83bc5815a317be"
-    sha256 cellar: :any,                 arm64_ventura: "037bb815d6b1b6da0fae3fca548a3c9935c4569b5cb9eb128170b6b640918826"
-    sha256 cellar: :any,                 sonoma:        "240065242fa1b6c217ad496b166e24544582778f20b036382e75edb14acec660"
-    sha256 cellar: :any,                 ventura:       "c3b3fbb55acdd848ae3f57dce3c9b5e381d03856ccf446a7a775f96eea60364e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39900755e888b5e9b3d1425804bd0450872ad0bfe66dea87826dbc532a0c9d81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dc2497550e2fcb281d9c55553d56527fbb1df3b20b1f7a8a2845bdb295291ec"
+    sha256 cellar: :any,                 arm64_sequoia: "da296e0b71e7c01d20df394126f081e07efd39b2e06dc93b880039d1f2928ab7"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c730725a1b782d55cf08d8270ead026fc1729a3d16a93281e54a83faeff04c6"
+    sha256 cellar: :any,                 arm64_ventura: "2d5d8eac583a6452205707103bca9a97ff621898a5494fe1d81457da750aadec"
+    sha256 cellar: :any,                 sonoma:        "f3e8473108fcc4035f1b3c93a63c4cce6b49d2761eac47ff805bb8c442e98089"
+    sha256 cellar: :any,                 ventura:       "328fcdc46b35831acd8ce2ebafc04ed4621474962670aac696e89c03cc3ce076"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ec5c69392c31e1d6175c5570d518163a1fa51ef641ffd3ffc48e963f53dea34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2396a87369b31f908d286519cf68534313cb994300a0b635f68a0cc4e8913c2e"
   end
 
   depends_on "certifi"
@@ -54,8 +54,8 @@ class Esphome < Formula
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/f1/6e/e3877eebb83e3e9d22b6089be7b8c098d3d09b2195a9570d6d9049e90d5b/bitarray-3.3.1.tar.gz"
-    sha256 "8c89219a672d0a15ab70f8a6f41bc8355296ec26becef89a127c1a32bb2e6345"
+    url "https://files.pythonhosted.org/packages/17/7b/148091d4696b38a0b14ce495e64736472cc04b0757cc8b5e7846a1cf78a9/bitarray-3.4.0.tar.gz"
+    sha256 "33eee090eade2c8303bfc01a9e104fea306d330035b18b5c50a04cb0cb76f08d"
   end
 
   resource "bitstring" do
@@ -64,8 +64,8 @@ class Esphome < Formula
   end
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/1b/fb/97839b95c2a2ea1ca91877a846988f90f4ca16ee42c0bb79e079171c0c06/bottle-0.13.2.tar.gz"
-    sha256 "e53803b9d298c7d343d00ba7d27b0059415f04b9f6f40b8d58b5bf914ba9d348"
+    url "https://files.pythonhosted.org/packages/f5/3b/efa9540213c71be3500e14592c5823bd3f9ddd881d306e01b5dd490ddab5/bottle-0.13.3.tar.gz"
+    sha256 "1c23aeb30aa8a13f39c60c0da494530ddd5de3da235bc431b818a50d999de49f"
   end
 
   resource "chacha20poly1305-reuseable" do
@@ -74,8 +74,8 @@ class Esphome < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "click" do
@@ -114,8 +114,8 @@ class Esphome < Formula
   end
 
   resource "h11" do
-    url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
-    sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
+    url "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz"
+    sha256 "4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"
   end
 
   resource "icmplib" do
@@ -154,8 +154,8 @@ class Esphome < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "paho-mqtt" do
@@ -259,8 +259,8 @@ class Esphome < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/86/37/dd92f1f9cedb5eaf74d9999044306e06abe65344ff197864175dbbd91871/uvicorn-0.34.1.tar.gz"
-    sha256 "af981725fc4b7ffc5cb3b0e9eda6258a90c4b52cb2a83ce567ae0a7ae1757afc"
+    url "https://files.pythonhosted.org/packages/a6/ae/9bbb19b9e1c450cf9ecaef06463e40234d98d95bf572fab11b4f19ae5ded/uvicorn-0.34.2.tar.gz"
+    sha256 "0e929828f6186353a80b58ea719861d2629d766293b6d19baf086ba31d4f3328"
   end
 
   resource "voluptuous" do

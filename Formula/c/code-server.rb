@@ -1,18 +1,18 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.99.2.tgz"
-  sha256 "2d242da43cdec0d2c71535965528a6435067a6d38a959e1962f3e6323bef51d8"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.100.2.tgz"
+  sha256 "869f21594fb63ef255b7c53ecafc4f5bcf973f8d1897829b6246341ad926f7d3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2951e82f4e58f3828c2cc410bd41671adc37b0d3391eb00599d5abc6d05fe19"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acac0a2104a84b762de5c32a78086943d77c263cc06dd51da0c648873e4330dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ee3b5b1159c7f9a739ce61b2ed5da9fc9d30f76c5ac22b52f52918a4f9e62f8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "298a267ca5cf6b9fa90c0056d0787d5a973e097f9aec54f1dea62c8438b718a6"
-    sha256 cellar: :any_skip_relocation, ventura:       "a9ed6e659b63c60e6a199bce74ebf03dc26dfb028318fadcca24bc84b5629dd1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f51ddca93d2eccfb7c5e35c642075dffcfaeaf09c12d14b4982342942646bb1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e5b3b0c6fddaa3137b30d86cca9960705eb5312108186e427bc5462d8c659b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e8fe656adf763150a5900ec863e041e3d9cee4b4132f4a485dc27ccc3d720f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03f1b17800fa23541788c0a4b2b564ed900f7c8ba8eb8a764e312442d10ffd55"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5234907d787f9631965e9d0d003bdafb0b613b6e4949a8658852524f09bdbc21"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f8b55e21a44a88bc6e2ef923ea2eca68d2abfd24d4b946980bed9567ef024e2d"
+    sha256 cellar: :any_skip_relocation, ventura:       "08fbb86ce75941f8a3818ab55039a79f9948ffdae6d788c40388517c644ef09c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "601cffb081453ffec004d5797e208eb882c9e176c1e5cc6a5d9effb28d9c849e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "320a3e07e323e30ff7abeadf933fe3577e8aed1a5f6f9c3d1a3e823ba64f68e7"
   end
 
   depends_on "node@20"
