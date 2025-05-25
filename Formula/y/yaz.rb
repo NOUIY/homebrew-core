@@ -1,10 +1,9 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/resources/software/yaz/"
-  url "https://ftp.indexdata.com/pub/yaz/yaz-5.34.4.tar.gz"
-  sha256 "c470a73f8d79cfa10971b43685f4542504d1d3bc45f2cd057870e0ffc2e12ead"
+  url "https://ftp.indexdata.com/pub/yaz/yaz-5.35.1.tar.gz"
+  sha256 "db030d6d66880398a44215e26132630ee94f5e462d838809e43f97e6399c1353"
   license "BSD-3-Clause"
-  revision 1
 
   # The latest version text is currently omitted from the homepage for this
   # software, so we have to check the related directory listing page.
@@ -14,13 +13,13 @@ class Yaz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "660fa5a3f3a8e2f24adedc9ac254b565cb1522d6bb7ff7753a7500aa4907702a"
-    sha256 cellar: :any,                 arm64_sonoma:  "116966d101d57e93f2061804df1d81e5e5f225b8ad3e1e110e25242e91755cee"
-    sha256 cellar: :any,                 arm64_ventura: "dad29db81f758274b742df91a4dcf55e84216c7f85e5e3228506c52dbd60f073"
-    sha256 cellar: :any,                 sonoma:        "faf4630be5ec0d91dc5425b7f945de23015520b27230d4edeff9929773bac7c4"
-    sha256 cellar: :any,                 ventura:       "4220cfb4b7ef156e7eae996530d795e9f31f8488ae1ef1b6128f5c77b4e1cc35"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c2905f69ea781cf103ea183b994e636c2b4db844f7d4445037141269ac49526"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa98f9b19fe40242fdb36768f4f2af63813a539d73c1b82aecebc9bda5a80282"
+    sha256 cellar: :any,                 arm64_sequoia: "24497a672f546f23ee52b7ff9b83863795545bd58a0c1561f3f634dcf220da7f"
+    sha256 cellar: :any,                 arm64_sonoma:  "e37f1921f43470a9a19b506b89f16e8f9b75a9965b8787dd5cf0e4ac28108555"
+    sha256 cellar: :any,                 arm64_ventura: "3ea0e0e6977e0a3bf1808e954386310246bdbc908051d9b653687cdd0b64e13b"
+    sha256 cellar: :any,                 sonoma:        "88022627e10356d887045d2d1be55bde3d09065ece5cbaec875047c748c7598c"
+    sha256 cellar: :any,                 ventura:       "280d60697fd3cb7fd04fdfb3ee24bd4df75e1de94408db54042d66786a7736a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "403a708cb2e5a97a3702dea76a7b43ef8b23a1974aa6d6eebd8aaf3a07c37dad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b26f737c242d969fa3a4c151fe73e72949af1e049a9f0fefae57533e2db44fe6"
   end
 
   head do

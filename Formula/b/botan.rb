@@ -1,8 +1,8 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-3.7.1.tar.xz"
-  sha256 "fc0620463461caaea8e60f06711d7e437a3ad1eebd6de4ac29c14bbd901ccd1b"
+  url "https://botan.randombit.net/releases/Botan-3.8.1.tar.xz"
+  sha256 "b039681d4b861a2f5853746d8ba806f553e23869ed72d89edbfa3c3dbfa17e68"
   license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4b99b6b1fbd3e8f79d834dfd7aedc4c965ed5324be305039306f79600c6bba47"
-    sha256 arm64_sonoma:  "fce0ad44a2808ebd116abfa266002bbbfe963f82a9ccc2d431399e0e07854cff"
-    sha256 arm64_ventura: "17f8b2ddfef80c6d7bfe7fd1f8667ed85a919231e0d6721a76fa6d2c6f4fc5e5"
-    sha256 sonoma:        "017161cab3bb069ba19443e80a721083fff6a37b87826d92b9c5fd3de47a2df2"
-    sha256 ventura:       "01b2b53465073d0e3309756d767ae6884b3a00653afce73a421333d32276c859"
-    sha256 arm64_linux:   "93ed08c305025c7dd68a163a5724e4f1777e333746d2ae79e01f0fd7e01d3050"
-    sha256 x86_64_linux:  "b1885d55ab656d8e509999458bbe6c5d91055bb4d84237f6de59dc01044ce94e"
+    rebuild 1
+    sha256 arm64_sequoia: "a967bbee75aacedb40abbea69a039efeb6d3747f60f78d7df3c990389f4bb4ee"
+    sha256 arm64_sonoma:  "363aac39d5a069ded0ffad86a0d924fdeba5da34b541c47de8a91a2b8ff37a55"
+    sha256 arm64_ventura: "d8bcc4c1e2fe8db29e38d6fc6420b03b9addba885332dcf37ecbde13dd1dad00"
+    sha256 sonoma:        "fb26ebacd465ecc8efe8978a8b0a7a7b2b1fa9b19f5838c71e1c0b02488610f8"
+    sha256 ventura:       "54669a30e929a073ae91d196a9a0929b9a4b77a05da4e026fb97f58da9ece15b"
+    sha256 arm64_linux:   "13c3d6c959ea7e723868b616eddbbafe0d9d705d015e975e7e53f2dca18bc50b"
+    sha256 x86_64_linux:  "3fb558f2f23a738424a0b1593e1541bf02ff454be11a1ceafadc05f30215a772"
   end
 
   depends_on "pkgconf" => :build
@@ -58,7 +59,7 @@ class Botan < Formula
     if OS.mac? && DevelopmentTools.clang_build_version <= 1400
       ENV.llvm_clang
 
-      ldflags = %W[-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib} -lunwind]
+      ldflags = %W[-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib}/unwind -lunwind]
       args << "--ldflags=#{ldflags.join(" ")}"
     end
 

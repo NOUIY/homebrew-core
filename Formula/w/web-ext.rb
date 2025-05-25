@@ -1,18 +1,18 @@
 class WebExt < Formula
   desc "Command-line tool to help build, run, and test web extensions"
   homepage "https://github.com/mozilla/web-ext"
-  url "https://registry.npmjs.org/web-ext/-/web-ext-8.5.0.tgz"
-  sha256 "d5606bd27fe0b12a42eaa6ff9e63724bfe9ab364a8b70554296a54296c7cc4b9"
+  url "https://registry.npmjs.org/web-ext/-/web-ext-8.7.0.tgz"
+  sha256 "19301015ae593ab449324884f211c5f353440261448d3569c353716347f08aaf"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43a6b39a46f322f75b720c3d2ab0a1da299604bee775379840e7ec3bb10aba62"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43a6b39a46f322f75b720c3d2ab0a1da299604bee775379840e7ec3bb10aba62"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "43a6b39a46f322f75b720c3d2ab0a1da299604bee775379840e7ec3bb10aba62"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eb3d8899488651fc64b77cd9dac47bd00bbcb3b0d3d1f59f18c01146875be65d"
-    sha256 cellar: :any_skip_relocation, ventura:       "eb3d8899488651fc64b77cd9dac47bd00bbcb3b0d3d1f59f18c01146875be65d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "388e499ff579e25f4860d20760e406b0cddc2cf3b54fe420b132fcb1d39f6d2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b26e601d12086bc4af6ae46df03b66b532f729238576ed3140e415042925fdaf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b92710b9e7b00d0c0040b04e0eab2223fc20487f6777e36d6616322702bcb128"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b92710b9e7b00d0c0040b04e0eab2223fc20487f6777e36d6616322702bcb128"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b92710b9e7b00d0c0040b04e0eab2223fc20487f6777e36d6616322702bcb128"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43542fa43090f951b422c59e721cb4fffc76ef86f65eb4206a72e0f3b3f9d93f"
+    sha256 cellar: :any_skip_relocation, ventura:       "43542fa43090f951b422c59e721cb4fffc76ef86f65eb4206a72e0f3b3f9d93f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccdffe61cd6b00b8978fb25fc56466d926de50f9e6a073da28c6d20c158a1154"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccdffe61cd6b00b8978fb25fc56466d926de50f9e6a073da28c6d20c158a1154"
   end
 
   depends_on "node"

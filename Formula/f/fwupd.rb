@@ -3,19 +3,19 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/2.0.8/fwupd-2.0.8.tar.xz"
-  sha256 "9aac805d18ed8a48fb37c7e8d9644520c33984326b7954584fe38ee2d10a3988"
+  url "https://github.com/fwupd/fwupd/releases/download/2.0.10/fwupd-2.0.10.tar.xz"
+  sha256 "adcc72a5c6df2f0382ab82b92ae158ea382824e5af474266aba2818d34fb1811"
   license "LGPL-2.1-or-later"
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "7d49636df66927c758efe2487a219b70bdc527da5caa86c67742018e8599ca72"
-    sha256 arm64_sonoma:  "f4fbec9c586cc70c4be7b32332cc5f815a0d9256aa59968159aafa528ea8cadf"
-    sha256 arm64_ventura: "c51cafcea5d9b33f7c19468d9db44ae427ee3dce540e6bf9266279f8cf66aa2b"
-    sha256 sonoma:        "14ec7ea3ea80063019ec6825e1f3f77bdb0f1fcdfc3d11a524ec141f74f6cf96"
-    sha256 ventura:       "04f8e8820fabce1477bca0886daeb4865b570aadaed0378e7be3a08a7d61f4f5"
-    sha256 arm64_linux:   "32ed3f93ab30fdcc83c67b208987e23db0b04290aa0658be14c3a8d25938f6f8"
-    sha256 x86_64_linux:  "22d48e644b5aa022f9b27c6df0537e0f9d89f78d55b8e73bb30a4628dbda7a3f"
+    sha256 arm64_sequoia: "abfa57c489fdd6d899413463b0a6320f084ddd024166250af3e2bb28d677c1f0"
+    sha256 arm64_sonoma:  "355cbf09794df0f812bc8d57065570ebf25292b8ee44c59510c6513837cec5a2"
+    sha256 arm64_ventura: "074b9639d52fba7c7dd8f26a6131f7b1395e5dd8c169692d8265e03c3b166085"
+    sha256 sonoma:        "e45648d848142238dec9fc05297ec65f0918e6b10e02d9162cfcd6f574ca40fd"
+    sha256 ventura:       "b0a3021bfd4c96c5f32563491f83bf4cb00650be4d76aaa9f9eacea4274ef455"
+    sha256 arm64_linux:   "910465c402552831e2614b50ce3533305ed51c1993d261f1dea1ecd6467cae10"
+    sha256 x86_64_linux:  "d4e020ed527e0c9d80822458db6c3dd9943f3e8522d835b7afb107bb57a95770"
   end
 
   depends_on "gettext" => :build
@@ -36,6 +36,7 @@ class Fwupd < Formula
   depends_on "libusb"
   depends_on "libxmlb"
   depends_on "protobuf-c"
+  depends_on "readline"
   depends_on "sqlite"
   depends_on "usb.ids"
   depends_on "xz"

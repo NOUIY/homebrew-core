@@ -4,6 +4,7 @@ class Qca < Formula
   url "https://download.kde.org/stable/qca/2.3.10/qca-2.3.10.tar.xz"
   sha256 "1c5b722da93d559365719226bb121c726ec3c0dc4c67dea34f1e50e4e0d14a02"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://invent.kde.org/libraries/qca.git", branch: "master"
 
   livecheck do
@@ -12,11 +13,12 @@ class Qca < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "bc85a2e095a424b8cb30fcaf2f43c35f768b3c3f8222b4769321a496b9f2a21f"
-    sha256 cellar: :any,                 arm64_ventura: "7ae6a90554696f8ea4b244295ccfc043b3b0d4a5833875c0854ece4ee31816e7"
-    sha256 cellar: :any,                 sonoma:        "1cd502eaf267def5285ca3a619e734265493678e0e3c11114222d746efefaf4a"
-    sha256 cellar: :any,                 ventura:       "472761fdfad7675d5e81b15a3fcb2b19a930468e8fd9bdc015c83fd27f4c3d7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "330c689007748aad331561165d3000ffee9e4580faacfca475ddc06e58082713"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:  "5d1185d69deda47364a7d2e279f27d68ece2a39fcf519e431fd356467a6b3b82"
+    sha256 cellar: :any,                 arm64_ventura: "ba134c852c174798c1e3591150a1b8c2b13eab89c164ad64784f46ee7fed1d6b"
+    sha256 cellar: :any,                 sonoma:        "413848dff121c2d4b2e48decf5e79e06d448be120d62e82f55a2dc8d7a6f45ff"
+    sha256 cellar: :any,                 ventura:       "0f7e5193b934d41a0d581f613f76317c0a600263859f11da094216fca2c8b39e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2eea9797f98480d589b8f4561ed35a0d306254692490c626ee2aeadb6546877d"
   end
 
   depends_on "cmake" => :build
@@ -45,7 +47,7 @@ class Qca < Formula
   def install
     if OS.mac? && DevelopmentTools.clang_build_version <= 1400
       ENV.llvm_clang
-      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib} -lunwind"
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib}/unwind -lunwind"
     end
 
     ENV["QC_CERTSTORE_PATH"] = Formula["ca-certificates"].pkgetc/"cert.pem"

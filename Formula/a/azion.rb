@@ -1,18 +1,18 @@
 class Azion < Formula
   desc "CLI for the Azion service"
   homepage "https://github.com/aziontech/azion"
-  url "https://github.com/aziontech/azion/archive/refs/tags/3.0.0.tar.gz"
-  sha256 "670272373f27017dda4425a93d9afefa72f2583ed0f62b9da2a7faa8b77da89d"
+  url "https://github.com/aziontech/azion/archive/refs/tags/3.2.0.tar.gz"
+  sha256 "7006b132e6529d50e2ba4ab9c2d1d9aaa9850601ef4fd9ab11dc211b596305a9"
   license "MIT"
   head "https://github.com/aziontech/azion.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "398e4971701d81b9c6d8132a18b5101c27083a6fb42a7170f185a4aa112cc2a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "398e4971701d81b9c6d8132a18b5101c27083a6fb42a7170f185a4aa112cc2a0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "398e4971701d81b9c6d8132a18b5101c27083a6fb42a7170f185a4aa112cc2a0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "460f04f80f7239c1042a135e482a819aabc2f0fe87cdbd3f748899041a1b95e0"
-    sha256 cellar: :any_skip_relocation, ventura:       "460f04f80f7239c1042a135e482a819aabc2f0fe87cdbd3f748899041a1b95e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd8e3d34b16f19a749b7e4efb3160f56cad9381daaa49cf41e10ea4ad49745fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4aae189ea946c367e4dc6907cb3ab8b4f2ec05ac7f5b9de455d3b3deb9a3d7c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4aae189ea946c367e4dc6907cb3ab8b4f2ec05ac7f5b9de455d3b3deb9a3d7c0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4aae189ea946c367e4dc6907cb3ab8b4f2ec05ac7f5b9de455d3b3deb9a3d7c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a78213ef095f3eb91464d8f926ceb0746e05906bab512b62d05a026d8c50bab1"
+    sha256 cellar: :any_skip_relocation, ventura:       "a78213ef095f3eb91464d8f926ceb0746e05906bab512b62d05a026d8c50bab1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2595d1e81ffb14f1e9ac2a0666ce78b3ac0776703bd959e638f7086e4919fcc"
   end
 
   depends_on "go" => :build

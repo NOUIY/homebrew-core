@@ -1,18 +1,18 @@
 class Libint < Formula
   desc "Library for computing electron repulsion integrals efficiently"
   homepage "https://github.com/evaleev/libint"
-  url "https://github.com/evaleev/libint/archive/refs/tags/v2.10.2.tar.gz"
-  sha256 "9a4dfcdba51c988566e187c119339b9aaee41185a02fdaa304ab4757d28e0acc"
+  url "https://github.com/evaleev/libint/archive/refs/tags/v2.11.1.tar.gz"
+  sha256 "58ab0f893d94cbed3ab35a6c26ec5e4d8541c59889407a6d30c50b8ea415bdf3"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "534a0dbaa6794c291b25fd7faf4e659c560b03c13669cda61d360d80388d2a32"
-    sha256 cellar: :any,                 arm64_sonoma:  "7576b683eb383a93dad8de11d819523d5c0242f22f920bdb29d3003feecac770"
-    sha256 cellar: :any,                 arm64_ventura: "db5d72c5962a06036365002e62c81c307c5a162a085ab69f1d6cd518608a5b70"
-    sha256 cellar: :any,                 sonoma:        "d17eb29754941b257cf2ee6f13c55fa5181304751f4a2a3ad0b1e66376e4fd30"
-    sha256 cellar: :any,                 ventura:       "3c5bfcdddd76047b1dad9e1f0d513928f79f9c48c33778a00fc769e53d6fc713"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8ca1a11a0196f72b37c631bc7409ce1c583ad56f30af6b5e270e8085e4aa654"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d8fa271b3daba7fa878c254197c4ed60745c67bcf68d649ce21787cf468c442"
+    sha256 cellar: :any,                 arm64_sequoia: "8ba0d94d0c2d08ae7f060c780b17138ccc9768a4085d70a9ebc07092bca0dbaf"
+    sha256 cellar: :any,                 arm64_sonoma:  "b4ed148dadc7cbef2fdba90c530aaa81fbbbc10b458a01548ed837667941f1d7"
+    sha256 cellar: :any,                 arm64_ventura: "321b83111abb704f45530c5e2431543b202cef7b79f149d8a18d9d92ffbc95c7"
+    sha256 cellar: :any,                 sonoma:        "496e3e04c6113298f83adb651e18899fcebb7272fa90bfcd263e84549435989e"
+    sha256 cellar: :any,                 ventura:       "4ca95b782163ae0ae71b84f74c2a828b6e9717909ae8ab3e85c7f948bd7dfca4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "660f1718e9e4490c778a99ac2f2a2ffe1e7ea97b911ecec248ddceb43ab44941"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45e54a1351ab5f13cc1a3cc83d8ba7fbeb8812c753f44cc5c0fda0e57e7f5ba0"
   end
 
   depends_on "autoconf" => :build

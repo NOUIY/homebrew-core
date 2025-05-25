@@ -1,18 +1,18 @@
 class Vet < Formula
   desc "Policy driven vetting of open source dependencies"
   homepage "https://github.com/safedep/vet"
-  url "https://github.com/safedep/vet/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "3a2e964cb022399317d7e7f20ea6b93b4d6876929ce8a0664a955f3ce8664073"
+  url "https://github.com/safedep/vet/archive/refs/tags/v1.10.4.tar.gz"
+  sha256 "22337924658523febca28d1ae498a1bead6978b1d75f8501fbc08419e0a42213"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2e618780f7dee7404ce857bcc6c7c7c463bff079adfe15308896c424786ebf5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35e10bff7b8f57cf185361992415b3f32658354b521d4e991204c0e925f48a18"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4087677eaae618c12656501804442cfdca1203da960e5444296a69e1e0e2a0f9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cb4902185d506b4a6e4a523ba35a92226714c5c1323a58400c89d19039ad421d"
-    sha256 cellar: :any_skip_relocation, ventura:       "8fda1f873fa826c5c834a94c0e0acb35b95a8327aed7118c27d79f444c4d149a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "66a765ec5a25dcab74ae3a9fa8572dd142496f1bb8094a164f2aac62fa27d470"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66ca6302eda4edd428c551ebe41faafc8a319516a62b964d9d2bf76cd7e9903c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf21a4136bf84cd6b09f1a20740eb38973d5706346c37659b2eabfb21bd093cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ad2382aa4de1618c5664a8aea2b244c83635f5ff147e0e5157ea9db70903bf6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5184ac8851df0aa15e19ab8b42c9b149da78e4f497e522d39cebb77431036220"
+    sha256 cellar: :any_skip_relocation, sonoma:        "61d77d37d1a9975f4f04c75149158b2992376d89a706154bea5e4b1a9e3e69fe"
+    sha256 cellar: :any_skip_relocation, ventura:       "646f06873a82067beac9e302b0aa8ded09d1111da290289aba73913455d9a136"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "16e4a7f2ac589de6ad1617625087319c25d9492af3395a6af86edea13c2501bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcadc0b68a99a5b3a2e31efde6f3db01b3f9aff19ccccff0e0fe6f2feddca3fe"
   end
 
   depends_on "go"

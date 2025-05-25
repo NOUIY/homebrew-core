@@ -1,19 +1,19 @@
 class Cyme < Formula
   desc "List system USB buses and devices"
   homepage "https://github.com/tuna-f1sh/cyme"
-  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v2.1.3.tar.gz"
-  sha256 "8f58f345f2e5d6e39841ef2bbd8c836faa2422dfb1fa2f3de7d37f860afa489c"
+  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v2.2.2.tar.gz"
+  sha256 "1455b2ecd42f5da64e1d679d248599f09805c8c3f84fb2cb41aa76d638d4c462"
   license "GPL-3.0-or-later"
   head "https://github.com/tuna-f1sh/cyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee3042ac5507e83a59fa42fd8c6301eda38bcdcce8d2908b8a9b72f1ca521dd1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d4f87e350db67c32b23382f5ba68a33e18a7d862c550de7e12001498b57bb25"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d32e7c1edd4f0cfdbd9210aa72fdcb0bdb22515bdacacf7defb2cd8d513b5465"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b34ce216d0231825e8cae6d609b9c470edb7340d2a2561c866ffb47cbab0b43"
-    sha256 cellar: :any_skip_relocation, ventura:       "4fe8501c6c1896808f065c2ce4a5c0babe930a8a73673e25aaca50a1c8c9205c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8c4887a5549d2e508bfec3b992555e0b615a8532980825684d72fbf4c5bc49e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01253ed0a8225b096b6638f74cc272ab8a2c2f79b9a36a641ec3996a67984126"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bc38d54aa6e1fc97369a3f8a4e79f2b014297917803d1fbf1fa836eac27b09c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a64b2c62c0a54aabc567c4bc93b6d4a31ac6232e01153a04f88daf7d1b35665e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c26d16f014c01049cbe33f192da8e23b9b3493a2726a5612c190e8eb67822ebe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "757d15265962a1adbd5894af34646ade55cc7ce4732e89ecfaf394781b57da1b"
+    sha256 cellar: :any_skip_relocation, ventura:       "da5b11333322b2771528702f21a47c14b2bba3737ea750f43c1da0680494a424"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eddcf213a805c906f378cf930a82e9ffc957cac3313588d420164e15d780cfd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79681f45659a7100bc1aa4ef7af669e61b0c89450d10c2e931374ced734245e2"
   end
 
   depends_on "rust" => :build

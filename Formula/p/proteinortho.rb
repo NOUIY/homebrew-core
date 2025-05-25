@@ -4,30 +4,47 @@ class Proteinortho < Formula
   url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.3.5/proteinortho-v6.3.5.tar.gz"
   sha256 "1b477657c44eeba304d3ec6d5179733d4c2b3857ad92dcbfe151564790328ce0"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "691114c22c7b2da4e5f32b9899793f87bf1288b116907a838328c3ba9665ccf2"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b31f93f3664b884ca7d1e75cec1443eaec3176cdd378d2d097b3df442fc846d"
-    sha256 cellar: :any,                 arm64_ventura: "6bb3b85a66eb9f7b274c5da08d9e521d9049e2e362cf810d526a026d4e2c7a7f"
-    sha256 cellar: :any,                 sonoma:        "ab241ce26173fedd1e3e705355bb1ad5cfd011c4ffa91f878ee3b413ac551c25"
-    sha256 cellar: :any,                 ventura:       "17a1cf8b7f0266b63fecf18342dad5276dcac2d153937b194a2b343a1cb0e0a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f26d43b6f2913fb05d1309e6bbeacd1d86ea69da151565cf148a69c096d6be96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f34a42b6359383dcf6040c2445f76bb662dc36e0585ac6d1709c7f83f20f755"
+    sha256 cellar: :any,                 arm64_sequoia: "fb9d08681faf0c8464fa65b131900c097876bac2c1a3c340dfaa85ad3a459702"
+    sha256 cellar: :any,                 arm64_sonoma:  "26e80497cc9d2284466a31dcc6dfd95357ea071ccc733c60eb0e79a086af374d"
+    sha256 cellar: :any,                 arm64_ventura: "8e23bd4abefac07aca474bba3e4e56f469b38cd7e3c9e46f792e573710415009"
+    sha256 cellar: :any,                 sonoma:        "e1862ac62a9b9b594a008d5e50c30faa0388224af3249a0b8f0f4f8ee1666aea"
+    sha256 cellar: :any,                 ventura:       "fc7eddf0b7441b7bcf81cdf6fe97ebb3c53354a4f538569a5334f554338f6c86"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "833760c644e5a42573ff7166c7b1201a925847350deb7a8ff7e35fc7ba97a02c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f93ee04f2ff9dc0c6a526f1567f6410deefaf8b4e340994ecd98734c9c685181"
   end
 
   depends_on "diamond"
   depends_on "openblas"
 
+  on_macos do
+    depends_on "libomp"
+  end
+
   def install
     ENV.cxx11
+
+    # Enable OpenMP
+    if OS.mac?
+      ENV.append_to_cflags "-Xpreprocessor -fopenmp -I#{Formula["libomp"].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula["libomp"].opt_lib} -lomp"
+    end
 
     bin.mkpath
     system "make", "install", "PREFIX=#{bin}"
     doc.install "manual.html"
+    pkgshare.install "test"
   end
 
   test do
     system bin/"proteinortho", "-test"
     system bin/"proteinortho_clustering", "-test"
+
+    # This test exercises OpenMP
+    cp_r pkgshare/"test", testpath
+    files = Dir[testpath/"test/*.faa"]
+    system bin/"proteinortho", *files
   end
 end

@@ -1,18 +1,18 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/terraform-linters/tflint"
-  url "https://github.com/terraform-linters/tflint/archive/refs/tags/v0.56.0.tar.gz"
-  sha256 "7af652453d0eaac07eea47a89081a49998688d8dd50d9bfbd68d06916892b6ad"
+  url "https://github.com/terraform-linters/tflint/archive/refs/tags/v0.58.0.tar.gz"
+  sha256 "c65176cfc5d9c7291b1f240e469670bf222baf8fdf2b9b3555bf0b6fce74a4c7"
   license "MPL-2.0"
   head "https://github.com/terraform-linters/tflint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b382992f625674270d571c3671a7a979fcac4e09df300931dd69884d4a0baabd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b382992f625674270d571c3671a7a979fcac4e09df300931dd69884d4a0baabd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b382992f625674270d571c3671a7a979fcac4e09df300931dd69884d4a0baabd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b0734841a610733aa27860eb88907f2c7cc1fbd6b75312cc00bde8375557cdf"
-    sha256 cellar: :any_skip_relocation, ventura:       "f39fc30d2eaef4ecb7a6f0ebf3bf6b6b01e905e95454ef64efec59ebfadc0a8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dd6ddd288cee43419f151e2bec74c4ba9390f86541cfda50de42a7fde653fb5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f334670b74f8d6ec47e6cb8e21784753fba04f87a11b6d3743190463eff27615"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f334670b74f8d6ec47e6cb8e21784753fba04f87a11b6d3743190463eff27615"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f334670b74f8d6ec47e6cb8e21784753fba04f87a11b6d3743190463eff27615"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6766f0bb9933eece28ca9b795587baaf14e9894488709892fc84980f39dd2bee"
+    sha256 cellar: :any_skip_relocation, ventura:       "e14cdcd73610c1a3ccd977dbd843b4926d683793b91c0b115fcc04873b37e66c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2ce462994f711becd98a8fdd25766fe30605dcb07663d971144b163c148d956"
   end
 
   depends_on "go" => :build

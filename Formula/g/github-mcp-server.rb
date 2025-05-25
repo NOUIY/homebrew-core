@@ -1,19 +1,18 @@
 class GithubMcpServer < Formula
   desc "GitHub Model Context Protocol server for AI tools"
   homepage "https://github.com/github/github-mcp-server"
-  url "https://github.com/github/github-mcp-server/archive/refs/tags/v0.1.1-release-validation.tar.gz"
-  version "0.1.1-release-validation"
-  sha256 "b79f546fd467ab98f327f95f25003b6fe43570314c3baa1bbe303f22188e8f9b"
+  url "https://github.com/github/github-mcp-server/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "824412c08b0fb8f462c6c59cc606791baffaaecb66810f4e274a3a7bd7fa6d99"
   license "MIT"
   head "https://github.com/github/github-mcp-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83d9176f4360bef31a9e67aa2fd13531b5b0953cce315f6c96d33ef9efd91407"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83d9176f4360bef31a9e67aa2fd13531b5b0953cce315f6c96d33ef9efd91407"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "83d9176f4360bef31a9e67aa2fd13531b5b0953cce315f6c96d33ef9efd91407"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a58fe7653160e3382a00a0c3815498f1d9ee88a07d853e50e127185c7f9f70cd"
-    sha256 cellar: :any_skip_relocation, ventura:       "a58fe7653160e3382a00a0c3815498f1d9ee88a07d853e50e127185c7f9f70cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1337d8546f1de494489ecb5d498c304b01e838b51c4896bf2eb0bc4d4c6ddc8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db1ff3f7ca90dea5b7b591686008f23a74291efb4bbb7be52b417b2608b404eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db1ff3f7ca90dea5b7b591686008f23a74291efb4bbb7be52b417b2608b404eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "db1ff3f7ca90dea5b7b591686008f23a74291efb4bbb7be52b417b2608b404eb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23a1d199ea1d2cba9b494b3d8535ba7c0d884acf30b9601a8837512314d9283f"
+    sha256 cellar: :any_skip_relocation, ventura:       "23a1d199ea1d2cba9b494b3d8535ba7c0d884acf30b9601a8837512314d9283f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acfaf80176388285cd66eb52e6a86b5760e3245b08e65e76f2899871f63d7573"
   end
 
   depends_on "go" => :build

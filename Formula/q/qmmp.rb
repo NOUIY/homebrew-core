@@ -1,8 +1,8 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.4.tar.bz2"
-  sha256 "489db0dd2bed32ba3cae5ab8b2f80d31e97e81bdfc5dbd7c82487c29e325cf81"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.6.tar.bz2"
+  sha256 "270eca6fd728d9a0bc7f19e94e0e0e1f6a3c44dade648dffa58a0dbb7396cb4b"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,11 +11,11 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "016f4260810b0361bb0402817440d58a3355e4175b1126f143dd4363c598d9f2"
-    sha256 cellar: :any,                 arm64_ventura: "a4e2530cdad1d2c5f618c5fabcd7cc2a0024c3edd34e84082bb8e0d4ba7b8ff0"
-    sha256 cellar: :any,                 sonoma:        "64827cfcd95c9ace098f64c77bcfbcf01999512122290f39d92b709193663c76"
-    sha256 cellar: :any,                 ventura:       "7b32fc1b6eb23c8f4097d9dff74dc90ed9961791830557c8f2809570d3d8112b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f3c0ecc2e145898e1551e550b5b0c5741edfbfa9485d34524395f3dce1b390a"
+    sha256 cellar: :any,                 arm64_sonoma:  "e0abc143771291b8281fa0a707532a871758df2b2d45181e8774a6575d957799"
+    sha256 cellar: :any,                 arm64_ventura: "dd805083638e6deef16d2eda280c7fda4007c0c0f3ba2318de1677bee3267421"
+    sha256 cellar: :any,                 sonoma:        "4ce82db5c1b1a28e4af3487920d72d3e4a6634e55df3b2cc90b62b59ba2651dc"
+    sha256 cellar: :any,                 ventura:       "296144784c048def7c715310da50a8ae0c4cbaf610f00ece201577bcc0aa9b10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50f977ff70a93525433229b540ce97f95ddf2f9571febcbd611152d9f9537705"
   end
 
   depends_on "cmake" => :build
@@ -44,6 +44,7 @@ class Qmmp < Formula
   depends_on "mad"
   depends_on "mpg123"
   depends_on "mplayer"
+  depends_on "musepack"
   depends_on "opus"
   depends_on "opusfile"
   depends_on "projectm"
@@ -58,9 +59,6 @@ class Qmmp < Formula
   on_macos do
     depends_on "gettext"
     depends_on "glib"
-    # musepack is not bottled on Linux
-    # https://github.com/Homebrew/homebrew-core/pull/92041
-    depends_on "musepack"
   end
 
   on_linux do

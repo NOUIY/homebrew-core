@@ -1,20 +1,19 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.8.1.tar.gz"
-  sha256 "c65c668810db305c4454ba26a10b6d84a96b5469719fe3c729e1c6542b8d0d87"
+  url "https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.10.0.tar.gz"
+  sha256 "0427585a4d6ca17c9fc1ac4b539bf303348e9080af70c5ea402503bc370a9631"
   license "MIT"
   head "https://github.com/xkbcommon/libxkbcommon.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "e17a7165d667abfde67eeaa55201022f41f070d603b35be24f06675ff729c83d"
-    sha256 arm64_sonoma:  "6d73b7fe3cc56ed4bf9423dbc3169e0ee71de814446c672dfb0d813140c7f66b"
-    sha256 arm64_ventura: "32d6a4a4c35d77fcf33d9d11b056fe44bced10436d776304a89fee455460c6df"
-    sha256 sonoma:        "8d90850aee4b259ff81c341de91f048da624ed6821113f4513ab9a669a0b23f3"
-    sha256 ventura:       "db65eb514edb1dd5fb91987846c63b67cdeb9c151d653fa65e3f67202d82ef68"
-    sha256 arm64_linux:   "fcb10ceb2f2b110280252f72895c40c79bef04be7230c7a11fb7a0e18ef879b5"
-    sha256 x86_64_linux:  "2613c577fd0374fcadc3f5d5123408f980c94e4b8e46f53dee14f80a9c2b853d"
+    sha256 arm64_sequoia: "5d111042432537f1ad4d4d63425952aa95478538525b0e3fc2a9d155b15e2f65"
+    sha256 arm64_sonoma:  "1d95b2069b43ed380723f7d1e2fb31ba7c57f396a65e16115eea62b952b33486"
+    sha256 arm64_ventura: "fac1aef344122665043d626d3e3f2b4399ba4f5b348c84d2a2b3c02b6f70ac62"
+    sha256 sonoma:        "785a57898a7575ef47f599e6b2094f775ada2ba8884e01de8d02f062c99f6f9e"
+    sha256 ventura:       "a34cffcd236e03c201601e646ed635d934de9d5cb556bc0154928d0e989de5d4"
+    sha256 arm64_linux:   "cc2d7e6e184bd2b5566e8a8a1a756576a92d7fc5af99db5fc7c51ea2984ba147"
+    sha256 x86_64_linux:  "0b3eae40f5f0fd0cdda9e88f6cba593a034b15ca7f312f7f34b5aec344f46baf"
   end
 
   depends_on "bison" => :build

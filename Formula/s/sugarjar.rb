@@ -1,29 +1,33 @@
 class Sugarjar < Formula
   desc "Helper utility for a better Git/GitHub experience"
   homepage "https://github.com/jaymzh/sugarjar/"
-  url "https://github.com/jaymzh/sugarjar/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "0ecdf0dcf44fb863b27a965cfe8d52b0436eb46f08503f2ab3a36d0bfea0b6e7"
+  url "https://github.com/jaymzh/sugarjar/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "7ae427d8dff1a293f063617365e76615ea7d238aaa7def260fd2b6f2cfa5e768"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "65ecd2cb3766d4be72ad9a424cda88fa979f8cddd12f3a2b30a60e4d8461faa4"
-    sha256 cellar: :any,                 arm64_sonoma:  "e6eab020e7abe1cb0965d77b1f1c2a2d04e2d1db36554b2ac9519f0fea76d856"
-    sha256 cellar: :any,                 arm64_ventura: "09fbeeaf8df6d59a5d76fe3e29bda8033dc7fef35c043ed4cf90cf59c9dc1d4b"
-    sha256 cellar: :any,                 sonoma:        "30a3729d83daeed129153ca04149ec548755ba97b4bd09e733093a402bbc4e3a"
-    sha256 cellar: :any,                 ventura:       "49e038185795406e1d605fa7ca8a42eb8d86c78300b368688cb0aee70ebc4abe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "623d49621a6203cee40d565a9aee6cc078add987fc50aa2dc9245ae411891414"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd160e6f1f1274ca6ccd308d7a7b3561797957d2fdddaa97ed06d02b275b195d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd160e6f1f1274ca6ccd308d7a7b3561797957d2fdddaa97ed06d02b275b195d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd160e6f1f1274ca6ccd308d7a7b3561797957d2fdddaa97ed06d02b275b195d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1692b320ec4f62d0e176ac95bd437d706cb8e84720c5aa90a190cb36644e517f"
+    sha256 cellar: :any_skip_relocation, ventura:       "1692b320ec4f62d0e176ac95bd437d706cb8e84720c5aa90a190cb36644e517f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9738a3c6fb7a4096ecd215c6557f9bcf2ce2c8216f51066d6ba1a5e4e8a15c1"
   end
 
   depends_on "gh"
-  # Requires Ruby >= 3.0
   depends_on "ruby"
 
+  uses_from_macos "libffi"
+
   def install
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
     ENV["GEM_HOME"] = libexec
+
     system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
-    system "gem", "build", "sugarjar.gemspec"
-    system "gem", "install", "--ignore-dependencies", "sugarjar-#{version}.gem"
+    system "gem", "build", "#{name}.gemspec"
+    system "gem", "install", "#{name}-#{version}.gem"
+
     bin.install libexec/"bin/sj"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
     bash_completion.install "extras/sugarjar_completion.bash" => "sj"

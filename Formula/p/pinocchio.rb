@@ -1,10 +1,9 @@
 class Pinocchio < Formula
   desc "Efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.5.0/pinocchio-3.5.0.tar.gz"
-  sha256 "5a1d521c5f885768075016455d3f9eb50bfb258db540c2f2c681ad251e25736c"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.7.0/pinocchio-3.7.0.tar.gz"
+  sha256 "c14c2ac9e5943af9acca9730c31d66c59b57a9407960d5b66d200f50b39a70a1"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
   livecheck do
@@ -13,13 +12,13 @@ class Pinocchio < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "c901b546f36d193bb1e73057932119dc8d7663409b4108049fd32abecaf70226"
-    sha256                               arm64_sonoma:  "d6f5861487a00dc43d94dcd5cb1504625d5025ee2141076e43f9f6f1dca9c3b9"
-    sha256                               arm64_ventura: "8a5bae63994e6303ecdf7b75e16663c3e1d2b035866c73b467f3bb9fdf66f036"
-    sha256 cellar: :any,                 sonoma:        "e9b6a72236cad1c56d0d7c9b78ee08c788e776e8f2cf4786f62596fd472541b1"
-    sha256 cellar: :any,                 ventura:       "dba1d77a5e030d3cf60a0fce8f709ebade8dc2ea8b9e04d5d2f49842883408f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb619d9f383062fd47f4e8ea0f4306eadad51d997d11e8786e02f143d7aa7669"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a586035d5eb4bd44e4016fa1fe07cf66055a224e09335b0ac1d2262db7fa6f1"
+    sha256                               arm64_sequoia: "0914dbd5f4b010a3ad1b711a19fe907d1096acd72b8a21910d4bf4ece2fbf76c"
+    sha256                               arm64_sonoma:  "cd8917e6e041b64acd4a9a29953114d607ca0eefda3091120d21342cb9e7c641"
+    sha256                               arm64_ventura: "4e165c6d7d05547ad155bf2a9285279cb4ae2c9f4fe86337d5a8fbbdadbd2e71"
+    sha256 cellar: :any,                 sonoma:        "b453324fac49dff80c51f9ce59e2d5ef9bc90c869f82da01289293cbe01ccf0f"
+    sha256 cellar: :any,                 ventura:       "931210dd6e3b69895b955b19922904a8075054f4e4f7c9f490f890e407f41ee5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4a0a4a228135de418ed9bc60fb1cc2a4c0dc2299501b305fa15e1fd809c04c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92d2898ba583dd9e3501d50ebc808b793254dd3436f8177d6d1bb3bd083ecdf8"
   end
 
   depends_on "cmake" => :build

@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.0.4.tar.xz"
-  sha256 "76293cf4372ca4e4e73fd6c36c567b917b608a4db9d11bd2e33068199a7df04d"
+  url "https://archive.mesa3d.org/mesa-25.1.1.tar.xz"
+  sha256 "cf942a18b7b9e9b88524dcbf0b31fed3cde18e6d52b3375b0ab6587a14415bce"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -23,13 +23,13 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "5406d012ed2cb39b785b5c0ca80b3d28371697902fc113df049a4a61011d171d"
-    sha256 arm64_sonoma:  "aee698de0d3929b35da1d8d1ae07d2473543434e4943948ea825ce7043b9b4c4"
-    sha256 arm64_ventura: "dbb48f1ceb23a9caacbeed123f290345deee96858d1aeb0692f59ca11bc97e0b"
-    sha256 sonoma:        "2266f1abbcf183cdb9d55a7b9cdabe7e01cd27bae268165cdcc291ac25aaeeae"
-    sha256 ventura:       "b86bc5e41de06a70e62c44810dba686d2abd56c307e85eb379c5e61eb69b06d0"
-    sha256 arm64_linux:   "7386ab3cff93363ac92c2af4139bf010ce6aa169ed601f933a475ac82eea3900"
-    sha256 x86_64_linux:  "90a1af14d62c6a9a6cf73615daeaf1cbbec25caef4834c17e9fe72c3b99efd65"
+    sha256 arm64_sequoia: "898c3b5b0787a550bc5a50ef35a6bc4432139dcf4f28ae515469a800cf2ced67"
+    sha256 arm64_sonoma:  "e867a09ac491e06117ce7f4ddbfe5525105f8720c1f76f6ac776a5a59475b83b"
+    sha256 arm64_ventura: "9b7302934fb2612e968c0a6dc86aba6eed794cf384ef2234b62b61fb4ee17fc8"
+    sha256 sonoma:        "9457d94f0730b22324669ab7651247e79210ba9933f7b439ce7a81c726d46582"
+    sha256 ventura:       "5d27f3426d2fc3a724c20e486158bbba811cab55e42d9ae4d9e15fb985933b39"
+    sha256 arm64_linux:   "111358f63ea7338a8a25d67f53fa0870f164301d578eab6bb21abc0f92f8e3f4"
+    sha256 x86_64_linux:  "5cbcdff4287d0e04316ca9960420ccc875470f15f57bae9ab73b0cac1357f788"
   end
 
   depends_on "bindgen" => :build
@@ -60,6 +60,10 @@ class Mesa < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "molten-vk"
+  end
 
   on_linux do
     depends_on "directx-headers" => :build
@@ -97,8 +101,8 @@ class Mesa < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "ply" do
@@ -134,23 +138,24 @@ class Mesa < Formula
     args = %w[
       -Db_ndebug=true
       -Dopengl=true
-      -Dosmesa=true
       -Dstrip=true
       -Dllvm=enabled
-      -Dgallium-drivers=auto
+
       -Dvideo-codecs=all
-      -Dgallium-opencl=icd
       -Dgallium-rusticl=true
     ]
     args += if OS.mac?
-      %w[
+      %W[
+        -Dgallium-drivers=llvmpipe,zink
         -Dvulkan-drivers=swrast
         -Dvulkan-layers=intel-nullhw,overlay,screenshot
-        -Dtools=etnaviv,glsl,nir,nouveau,asahi,imagination,dlclose-skip
+        -Dtools=etnaviv,glsl,nir,nouveau,imagination,dlclose-skip
+        -Dmoltenvk-dir=#{Formula["molten-vk"].prefix}
       ]
     else
       %w[
         -Degl=enabled
+        -Dgallium-drivers=auto
         -Dgallium-extra-hud=true
         -Dgallium-nine=true
         -Dgallium-va=enabled
@@ -181,12 +186,23 @@ class Mesa < Formula
     inreplace lib/"pkgconfig/dri.pc" do |s|
       s.change_make_var! "dridriverdir", HOMEBREW_PREFIX/"lib/dri"
     end
+
+    # https://gitlab.freedesktop.org/mesa/mesa/-/issues/13119
+    if OS.mac?
+      inreplace %W[
+        #{prefix}/etc/OpenCL/vendors/rusticl.icd
+        #{share}/vulkan/explicit_layer.d/VkLayer_MESA_overlay.json
+        #{share}/vulkan/explicit_layer.d/VkLayer_MESA_screenshot.json
+      ] do |s|
+        s.gsub! ".so", ".dylib"
+      end
+    end
   end
 
   test do
     resource "glxgears.c" do
-      url "https://gitlab.freedesktop.org/mesa/demos/-/raw/878cd7fb84b7712d29e5d1b38355ed9c5899a403/src/xdemos/glxgears.c"
-      sha256 "af7927d14bd9cc989347ad0c874b35c4bfbbe9f408956868b1c5564391e21eed"
+      url "https://gitlab.freedesktop.org/mesa/demos/-/raw/8ecad14b04ccb3d4f7084122ff278b5032afd59a/src/xdemos/glxgears.c"
+      sha256 "cbb5a797cf3d2d8b3fce01cfaf01643d6162ca2b0e97d760cc2e5aec8d707601"
     end
 
     resource "gl_wrap.h" do

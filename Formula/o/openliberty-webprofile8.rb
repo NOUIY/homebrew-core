@@ -1,8 +1,8 @@
 class OpenlibertyWebprofile8 < Formula
   desc "Lightweight open framework for Java (Jakarta EE Web Profile 8)"
   homepage "https://openliberty.io"
-  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/25.0.0.3/openliberty-webProfile8-25.0.0.3.zip"
-  sha256 "c3b51d13b07b896f797966be5a89bbe27abbf82ebde3f586473e3f0fd97799ed"
+  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/25.0.0.5/openliberty-webProfile8-25.0.0.5.zip"
+  sha256 "44ebd4c24c9922a961c43cb08ccd95b4d54d4fa9aadeea6b4fd34bcf91ba8b5e"
   license "EPL-1.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class OpenlibertyWebprofile8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0d7be54dfcce14c930242c4f35216908b6714fce1d973df77f27e7e1a48c678b"
+    sha256 cellar: :any_skip_relocation, all: "a9c9d35f9b5a933a1adcf90699d1603712e17c67f1c0bd2c7747183d4ac3f15d"
   end
 
   depends_on "openjdk"

@@ -1,10 +1,9 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-3.5.2.tar.gz"
-  sha256 "fb9f95d56e3aaef6a296473c76a3b99005ac41864d486c197cd478c9b14f791a"
+  url "https://download.osgeo.org/postgis/source/postgis-3.5.3.tar.gz"
+  sha256 "650e44de788d38175e3719df1d2ca4356bd987f54fe3d2030808de76464a2a06"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -12,12 +11,12 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "62af63f759ed25f9082c1a745cf477c1f76593eb085bc99ad0097419b4843d66"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ff4281a0ba5513b5e7e3b24ddf876a7f4f8942eade6600a71f6faceda9b9290"
-    sha256 cellar: :any,                 arm64_ventura: "efeeb68577e73a5f2d904feb62ee197fa71e19598142a10103dde37a7b79ad10"
-    sha256 cellar: :any,                 sonoma:        "cc56361e4581279a3c0322ba5fd1a8450fdc8e373e0cb52b2c5d2d21b7d03658"
-    sha256 cellar: :any,                 ventura:       "075836df35f956b3215b14887fb1e73858f17081167ac1f0888531842eb3fd97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99d96c03aa912239f623da45b338848d82523c172d78aed4e67f837305048a03"
+    sha256 cellar: :any,                 arm64_sequoia: "4d77e55e3a992c86b7fb55f78ad0d5661735680d55162f7555ba375d6a9ae2b9"
+    sha256 cellar: :any,                 arm64_sonoma:  "d5eddc168c4a7158110015064b89ca1076e9345c02639b5665292894f8874d09"
+    sha256 cellar: :any,                 arm64_ventura: "55ac1beb155c3aa9f2fb13d2a0caa37e984171ba338588693caa890a7c97cd47"
+    sha256 cellar: :any,                 sonoma:        "73251c8a848a26bed7ab684a942e34b2dfb958ab0fbb36716b0c82f5da3af6ec"
+    sha256 cellar: :any,                 ventura:       "6c632fed3fe0d90c558c4d94650159a0162e894f56af1aff34f2a1870c8142bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acdcb64101e9ef22b5d91bb1f3129c8052676908dcc51e9a0f1b87ed2c3a9ac2"
   end
 
   head do

@@ -3,8 +3,8 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.24.2.tar.gz"
-  sha256 "d0fba41400973c0ad36c5cb97897b8e3dfb92fccca9ed65da9184f39a10a6e2c"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.25.2.tar.gz"
+  sha256 "de01c18f59c72f8160c3194b822eebe0f0e6ef77207e239a925c72009518089b"
   license all_of: [
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
@@ -12,11 +12,11 @@ class Mlx < Formula
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "8782fd08371c5c62f717bb3a8d1c43dcc6f359e159d0148a146a1849f4f44b24"
-    sha256 cellar: :any, arm64_sonoma:  "07b9ac48c2be435b0a143ee7a1f6aa29b7258a4d11ea7b9f580ee15eda2dc28e"
-    sha256 cellar: :any, arm64_ventura: "2a6603ba259b18cfa2bf5ca137db429b8831dceef7ac12a07335def22a026bf3"
-    sha256 cellar: :any, sonoma:        "3e2e8419d1b4b7c0be228226c14d0bcce8829cb1e696d128ec4d203cda7fb740"
-    sha256 cellar: :any, ventura:       "fbb141bb09fcc1efcd1748766d9c11028081d19b80d2087985d8ce43102e8992"
+    sha256 cellar: :any, arm64_sequoia: "6c44962cad5a0418f7d888b0cc1c32bf5ec820e65f31c53e5aaa9792378dfa73"
+    sha256 cellar: :any, arm64_sonoma:  "564ccfc953e7675deae57f7021319f0a3c5c966ac3bcd54e7b7f521264566a2e"
+    sha256 cellar: :any, arm64_ventura: "27471e57abdedc23ae260f135facafed41d760ae542807edaaa6a41ba001f10c"
+    sha256 cellar: :any, sonoma:        "2e4480e8eab481305971a3ea5d0adf9805e91715d4ce42bf425fa43cf699cdfd"
+    sha256 cellar: :any, ventura:       "b6c09fa5b59d983579b4f3b713f185e8443368e978187a67d118d7ff18ce0ac5"
   end
 
   depends_on "cmake" => :build
